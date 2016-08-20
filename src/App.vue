@@ -1,13 +1,12 @@
 <template>
-  <div class="header-container"></div>
-  <div class="main-container">
-    <div id="app">test whether less loader is loaded <a>test!</a></div>
-    <div class="ui icon input">
-  <input type="text" placeholder="Search...">
-  <i class="inverted circular search link icon"></i>
-</div>
+  <div id="header-container"></div>
+  <div id="main-container">
+    <router-view></router-view>
   </div>
-  <div class="footer-container"></div>
+  <div id="footer-container">
+    <p><i>软件学院学生会生活权益部出品</i></p>
+    <p class="contant">bug反馈／功能建议：weigy14@gmail.com</p>
+  </div>
 </template>
 
 <script>
@@ -19,6 +18,7 @@ import result from './components/result'
 //import semantic from '../semantic/dist/semantic.min.js'
 
 export default {
+  name: 'App',
   components: {
     welcome,
     items,
@@ -30,20 +30,14 @@ export default {
 
 <style lang="less">
 
-html {
-  height: 100%;
-}
-
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #app {
   color: #2c3e50;
-  margin-top: -100px;
+  
   max-width: 600px;
   font-family: Source Sans Pro, Helvetica, sans-serif;
   text-align: center;
@@ -56,5 +50,27 @@ body {
 .logo {
   width: 100px;
   height: 100px
+}
+
+#header-container {
+
+}
+
+#footer-container {
+  background: #43A047;
+  color: #f7f7f7;
+  width: 100%;
+  font-size: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  letter-spacing: 15px;
+  box-shadow: 0px 2px 3px rgba(0,0,0,0.12),0px 2px 2px rgba(0,0,0,0.24);
+  p {
+    text-align: center;
+  }
+  .contant {
+    font-size: 14px;
+    letter-spacing: 0px;
+  }
 }
 </style>
