@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import App from './App'
-import VueRouter from 'vue-router'
+//import Vuex from 'vuex'
+//import VueRouter from 'vue-router'
+import Router from 'vue-router'
+import Vuex from 'vuex'
+import store from './vuex/store'
+import { sync } from 'vuex-router-sync'
+
 import welcome from  './components/welcome'
 import items from './components/items'
 import customer from './components/customer'
@@ -9,7 +15,10 @@ import result from './components/result'
 import '../node_modules/semantic-ui-css/semantic.min.css'
 import semantic from 'semantic'
 
-Vue.use(VueRouter);
+Vue.use(Router)
+Vue.use(Vuex)
+
+
 
 /* eslint-disable no-new */
 /*var vm = new Vue({
@@ -17,9 +26,11 @@ Vue.use(VueRouter);
   components: { App }
 });*/
 
-var vm = Vue.extend({});
+const vm = Vue.extend({store});
 
-var router = new VueRouter();
+const router = new Router();
+
+sync(store, router);
 
 router.map({
 	'/': {

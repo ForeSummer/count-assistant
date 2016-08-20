@@ -1,4 +1,5 @@
 <template>
+<div>
   <div id="header-container"></div>
   <div id="main-container">
     <router-view></router-view>
@@ -7,23 +8,21 @@
     <p><i>软件学院学生会生活权益部出品</i></p>
     <p class="contant">bug反馈／功能建议：weigy14@gmail.com</p>
   </div>
+</div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-import welcome from  './components/welcome'
-import items from './components/items'
-import customer from './components/customer'
-import result from './components/result'
-//import semantic from '../semantic/dist/semantic.min.js'
 
 export default {
   name: 'App',
-  components: {
-    welcome,
-    items,
-    customer,
-    result
+  data: function(){
+    return {
+      data: {
+        items:[],
+        customers: [],
+        results:[]
+      }
+    }
   }
 }
 </script>
