@@ -1,6 +1,11 @@
 <template>
 <div>
-  <div id="header-container"></div>
+  <div id="header-container">
+    <div class="logo-container">
+      <img src="./assets/logo.jpeg">
+    </div>
+    <div class="title"><p>团购统计助手</p></div>
+  </div>
   <div id="main-container">
     <router-view></router-view>
   </div>
@@ -35,7 +40,42 @@ body {
 }
 
 #header-container {
+  top: 0;
+  position:fixed;
+  height: 70px;
+  text-align: center;
+  width: 100%;
+  border-bottom: 4px #43A047 solid;
+  background: #fafafa;
+  padding: 10px;
+  z-index: 10000;
+  div {
+    display: inline-block;
+  }
+  .logo-container {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 10%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .title {
+    text-align: center;
+    p{
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
 
+#main-container {
+  padding-top: 120px;
 }
 
 .container {
@@ -44,6 +84,7 @@ body {
   background: #f7f7f7;
   padding-left: 3%;
   padding-right: 3%;
+  margin-bottom: 50px;
 }
 
 #footer-container {
@@ -54,6 +95,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   letter-spacing: 15px;
+  bottom: 30px;
   box-shadow: 0px 2px 3px rgba(0,0,0,0.12),0px 2px 2px rgba(0,0,0,0.24);
   p {
     text-align: center;

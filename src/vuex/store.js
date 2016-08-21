@@ -18,12 +18,33 @@ const mutations = {
   	if(index < 0 || state.items.length <= index) {
   		return false
   	}
-    state.items.splice(index, 1);
+    state.items.splice(index, 1)
     return true
   },
   _getItems() {
-  	return state.items;
+  	return state.items
   },
+  _addCustomer (person) {
+  	state.customers.push(person)
+  	return state.customers.length
+  },
+  _deleteCustomer (index) {
+  	if(index < 0 || state.customers.length <= index) {
+  		return false
+  	}
+    state.customers.splice(index, 1)
+    return true
+  },
+  _modifyCustomer (index, person) {
+  	if(index < 0 || state.customers.length <= index) {
+  		return false
+  	}
+  	state.customers[index] = person;
+  	return true
+  },
+  _getCustomer() {
+  	return state.customers
+  }
 }
 
 export default new Vuex.Store({

@@ -13,6 +13,7 @@ import customer from './components/customer'
 import result from './components/result'
 
 import '../node_modules/semantic-ui-css/semantic.min.css'
+
 import semantic from 'semantic'
 
 Vue.use(Router)
