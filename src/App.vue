@@ -18,16 +18,11 @@
 
 <script>
 
+
 export default {
   name: 'App',
-  data: function(){
-    return {
-      data: {
-        items:[],
-        customers: [],
-        results:[]
-      }
-    }
+  components: {
+
   }
 }
 </script>

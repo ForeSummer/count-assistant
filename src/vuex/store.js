@@ -1,49 +1,60 @@
-import Vue from 'Vue'
+import V from '../common'
+
+
 import Vuex from 'Vuex'
 
-Vue.use(Vuex)
+V.Vue.use(Vuex)
+
+import {
+  UPDATE_ITEMS,
+  ADD_ITEM,
+  DELETE_ITEM,
+  ADD_CUSTOMER,
+  DELETE_CUSTOMER,
+  MODIFY_CUSTOMER
+} from './mutation-types'
+
 
 const state = {
-  items:[],
+  items:[{
+        'name': '1',
+        'price': '1',
+        'amount': 0,
+      }],
   customers: [],
-  results: []
+  results: [],
+  message: 'test',
+  count: 0,
 }
 
+
+
 const mutations = {
-  _addItem (item) {
+  [ADD_ITEM] (state, item) {
     state.items.push(item)
-    return state.items.length
+    state.message = item.name
   },
-  _deleteItem (index) {
-  	if(index < 0 || state.items.length <= index) {
-  		return false
-  	}
+  [DELETE_ITEM] (state, index) {
     state.items.splice(index, 1)
-    return true
   },
-  _getItems() {
-  	return state.items
+  [UPDATE_ITEMS] (state, items) {
+    state.items = items
   },
-  _addCustomer (person) {
-  	state.customers.push(person)
-  	return state.customers.length
+  [ADD_CUSTOMER] (state, person) {
+    state.customers.push(person)
   },
-  _deleteCustomer (index) {
-  	if(index < 0 || state.customers.length <= index) {
-  		return false
-  	}
+  [DELETE_CUSTOMER] (state, index) {
     state.customers.splice(index, 1)
-    return true
   },
-  _modifyCustomer (index, person) {
-  	if(index < 0 || state.customers.length <= index) {
-  		return false
-  	}
-  	state.customers[index] = person;
-  	return true
+  [MODIFY_CUSTOMER] (state, index, person) {
+    state.customers[index] = person;
   },
-  _getCustomer() {
-  	return state.customers
+  INCREMENT (state) {
+    console.log(state.count)
+    state.count ++
+  },
+  DECREMENT (state) {
+    state.count--
   }
 }
 
