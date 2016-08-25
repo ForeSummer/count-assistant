@@ -9,6 +9,7 @@ import {
   UPDATE_ITEMS,
   ADD_ITEM,
   DELETE_ITEM,
+  MODIFY_ITEM,
   ADD_CUSTOMER,
   DELETE_CUSTOMER,
   MODIFY_CUSTOMER
@@ -36,6 +37,9 @@ const mutations = {
   },
   [DELETE_ITEM] (state, index) {
     state.items.splice(index, 1)
+  },
+  [MODIFY_ITEM] (state, index, item) {
+    state.items[index] = item
   },
   [UPDATE_ITEMS] (state, items) {
     state.items = items

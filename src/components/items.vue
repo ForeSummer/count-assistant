@@ -1,9 +1,7 @@
 <template>
 <div id="items" class="container">
   <div class="title">
-    <p id="main">First Step{{count}} -- {{thisCount}}</p>
-    <button v-on:click="increment">+</button>
-  <button v-on:click="decrement">-</button>
+    <p id="main">First Step</p>
     <p id="sub">输入或者上传文件导入商品信息</p>
   </div>
   <div class="ui form">
@@ -40,11 +38,11 @@
       <div class="content item">
         <div class="ui labeled input">
           <div class="ui label">品名</div>
-          <input type="text" v-model="item.name">
+          <input type="text" @input="updateItem($index)" v-model="item.name">
         </div>
         <div class="ui labeled input">
           <div class="ui label">¥</div>
-          <input type="text" v-model="item.price" number>
+          <input type="text" @input="updateItem($index)" v-model="item.price" number>
         </div>
       </div>
     </div>
@@ -112,17 +110,19 @@
 <script>
 
 import {
-  UPDATE_ITEMS,
+  MODIFY_ITEM,
   ADD_ITEM,
   DELETE_ITEM
 } from '../vuex/mutation-types'
-import { increment, decrement } from '../vuex/actions'
+
+
 export default {
   name: 'items',
   data: function(){
     return {
       itemsLength: 0,
       thisMessage:'',
+      warningInfo: '',
       item: {
         'name': '',
         'price': '',
@@ -132,36 +132,17 @@ export default {
   },
   vuex: {
     getters: {
-      items: function(state){
-        return state.items
-      },
-      message: state => state.message,
-      count: state => state.count
+      items: state => state.items
     },
     actions: {
-      increment,
-      decrement,
-      updateItems: ({dispatch}, items) => {
-        dispatch(UPDATE_ITEMS, items)
+      _updateItem: ({dispatch}, index, item) => {
+        dispatch(MODIFY_ITEM, index, item)
       },
       _addItem: ({dispatch}, item) => {
         dispatch(ADD_ITEM, item)
       },
       _deleteItem: ({dispatch}, index) => {
         dispatch(DELETE_ITEM, index)
-      }
-    }
-  },
-  computed: {
-    thisMessage: {
-      get() {
-        console.log(this.message)
-        return this.message
-      }
-    },
-    thisCount: {
-      get() {
-        return this.count;
       }
     }
   },
@@ -174,7 +155,6 @@ export default {
         return
       }
       this._addItem(this.item)
-      console.log(this.message)
       this.item = {
         'name': '',
         'price': '',
@@ -185,6 +165,10 @@ export default {
     deleteItem: function(index) {
       this._deleteItem(index)
       this.itemsLength --
+    },
+    updateItem: function(index) {
+      this._updateItem(index, this.items[index])
+      console.log(this.items[index])
     },
     uploadFile: function() {
     }
