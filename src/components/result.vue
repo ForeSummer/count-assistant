@@ -15,15 +15,15 @@
       <div class="content item">
         <div class="ui labeled input">
           <div class="ui label">品名</div>
-          <input type="text" v-model="item.name">
+          <input type="text" readonly="" v-model="item.name">
         </div>
         <div class="ui labeled input">
           <div class="ui label">¥</div>
-          <input type="text" v-model="item.price">
+          <input type="text" readonly="" v-model="item.price">
         </div>
         <div class="ui labeled input">
           <div class="ui label">数量</div>
-          <input type="text" v-model="item.amount" number>
+          <input type="text" readonly="" v-model="item.amount" number>
         </div>
       </div>
     </div>
@@ -42,15 +42,15 @@
       <div class="content item">
         <div class="ui labeled input">
           <div class="ui label">姓名</div>
-          <input type="text" v-model="user.name" >
+          <input type="text" readonly="" v-model="user.name" >
         </div>
         <div class="ui labeled input">
           <div class="ui label">宿舍</div>
-          <input type="text" v-model="user.address" >
+          <input type="text" readonly="" v-model="user.address" >
         </div>
         <div class="ui labeled input">
           <div class="ui label">联系方式</div>
-          <input type="text" v-model="user.mobile" >
+          <input type="text" readonly="" v-model="user.mobile" >
         </div>
         <a class="ui teal tag label">{{user.choose[chooseIndex]}}</a>
       </div>

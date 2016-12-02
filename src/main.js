@@ -5,8 +5,11 @@ import Router from 'vue-router'
 import routerMap from './router'
 import store from './vuex/store'
 
-import '../node_modules/semantic-ui-css/semantic.min.css'
-import semantic from 'semantic'
+
+
+import '../node_modules/materialize-css/dist/css/materialize.min.css'
+import '../node_modules/materialize-css/dist/js/materialize.min.js'
+import materialize from 'materialize-css'
 
 V.Vue.use(Router)
 
