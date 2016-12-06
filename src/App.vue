@@ -12,9 +12,14 @@
         <li><a href="mobile.html" class="black-text">关于我们</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
+        <div>
+          <a href="#" class="side-nav-icon"><img class="user-icon" src="assets/logo.jpeg"></a>
+          <a href="#" class="side-nav-username">Username</a>
+          <a href="#" class="side-nav-info">Info填充字数填充字数填充字数填充字数填充字数填充字数填充字数填充字数填充字数填充字数填充字数填充字数填充字数</a>
+        </div>
         <li><a href="sass.html">创建活动</a></li>
         <li><a href="badges.html">个人中心</a></li>
-        <li><a href="collapsible.html">我的私信</a></li>
+        <li><a href="collapsible.html">我的私信<span class="alert-num">5</span></a></li>
         <li><a href="mobile.html">费用说明</a></li>
         <li><a href="mobile.html">关于我们</a></li>
       </ul>
@@ -69,12 +74,40 @@ body {
       text-align: center;
       padding-top: 50px;
       font-family: 'Microsoft Yahei';
+      .side-nav-icon {
+        text-align: left;
+        height: 60px;
+        .user-icon {
+          width: 60px;
+          height: 60px;
+        }
+      }
+      .side-nav-username {
+        text-align: left;
+        font-size: 24px;
+        height: 40px;
+      }
+      .side-nav-info {
+        text-align: left;
+        height: 50px;
+        line-height: 25px;
+        overflow-y: hidden;
+        margin-bottom: 20px;
+      }
       li {
         height: 70px;
         a {
           font-size: 18px;
         }
-        
+        .alert-num {
+          margin-left: 10px;
+          padding-left: 5px;
+          padding-right: 5px;
+          color: white;
+          font-size: 16px;
+          background-color: red;
+          border-radius: 10px;
+        }
       }
     }
   }
