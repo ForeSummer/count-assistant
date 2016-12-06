@@ -6,7 +6,8 @@ const state = {
   'data': {
     'openid': '',
     'nickname': 'Test',
-    'unreadMessageNum': 0,
+    'userinfo': 'This is a brief info',
+    'unreadMessageNum': 1,
   },
   'status': {
 

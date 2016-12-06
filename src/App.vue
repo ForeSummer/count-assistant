@@ -7,14 +7,19 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html" class="black-text">创建活动</a></li>
         <li><a href="badges.html" class="black-text">个人中心</a></li>
-        <li><a href="collapsible.html" class="black-text">我的私信</a></li>
+        <li><a href="collapsible.html" class="black-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a href="mobile.html" class="black-text">费用说明</a></li>
         <li><a href="mobile.html" class="black-text">关于我们</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
+        <div class="user-area">
+          <a href="#" class="side-nav-icon"><img class="user-icon" src="assets/logo.jpeg"></a>
+          <a href="#" class="side-nav-username">{{username}}</a>
+          <a href="#" class="side-nav-info">{{userinfo}}</a>
+        </div>
         <li><a href="sass.html">创建活动</a></li>
         <li><a href="badges.html">个人中心</a></li>
-        <li><a href="collapsible.html">我的私信</a></li>
+        <li><a href="collapsible.html">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a href="mobile.html">费用说明</a></li>
         <li><a href="mobile.html">关于我们</a></li>
       </ul>
@@ -43,7 +48,9 @@ export default {
   },
   vuex: {
     getters: {
-      username: state => state.user.data.username
+      username: state => state.user.data.nickname,
+      userinfo: state => state.user.data.userinfo,
+      unreadMessage: state => state.user.data.unreadMessageNum,
     },
     actions: {
       
@@ -72,10 +79,48 @@ body {
     .right {
       font-family: 'Microsoft Yahei';
     }
+    .alert-num {
+      margin-left: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      color: white;
+      font-size: 16px;
+      background-color: red;
+      border-radius: 10px;
+    }
     .side-nav {
+      user-select: none;
       text-align: center;
-      padding-top: 50px;
       font-family: 'Microsoft Yahei';
+      .user-area {
+        padding-top: 50px;
+        background: #2196F3;
+        color: #fff;
+        padding-left: 20px;
+      }
+      .side-nav-icon {
+        text-align: left;
+        height: 60px;
+        .user-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+      .side-nav-username {
+        text-align: left;
+        font-size: 24px;
+        height: 40px;
+        color: #fff;
+      }
+      .side-nav-info {
+        text-align: left;
+        height: 50px;
+        line-height: 25px;
+        overflow-y: hidden;
+        margin-bottom: 20px;
+        color: #fff;
+      }
       li {
         height: 70px;
         a {
