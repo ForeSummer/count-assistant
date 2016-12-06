@@ -36,11 +36,18 @@
 
 <script>
 
-
 export default {
   name: 'App',
   components: {
 
+  },
+  vuex: {
+    getters: {
+      username: state => state.user.data.username
+    },
+    actions: {
+      
+    }
   },
   ready: function() {
     $(".button-collapse").sideNav();
