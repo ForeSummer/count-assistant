@@ -1,5 +1,7 @@
 import App from './App'
 import homepage from './components/homepage'
+import about from './components/about'
+import price from './components/price'
 import actList from './components/activity-list'
 import actDetail from './components/activity-detail'
 import welcome from  './components/welcome'
@@ -15,6 +17,12 @@ export default function(router) {
       subRoutes:{
         '/': {
           component: homepage
+        },
+        '/about': {
+          component: about
+        },
+        '/price': {
+          component: price
         },
         '/activity/list': {
           component: actList
