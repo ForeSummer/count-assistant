@@ -1,5 +1,7 @@
 import App from './App'
 import homepage from './components/homepage'
+import actList from './components/activity-list'
+import actDetail from './components/activity-detail'
 import welcome from  './components/welcome'
 import items from './components/items'
 import customer from './components/customer'
@@ -14,10 +16,16 @@ export default function(router) {
         '/': {
           component: homepage
         },
+        '/activity/list': {
+          component: actList
+        },
+        '/activity/detail': {
+          component: actDetail
+        },
         '/activity/create': {
           component: actCreate
         },
-        '/activity／test': {
+        '/activity/test': {
           component: customer
         },
         '/result': {
