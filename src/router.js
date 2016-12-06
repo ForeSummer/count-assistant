@@ -1,4 +1,5 @@
 import App from './App'
+import homepage from './components/homepage'
 import welcome from  './components/welcome'
 import items from './components/items'
 import customer from './components/customer'
@@ -10,7 +11,7 @@ export default function(router) {
       component: App,
       subRoutes:{
         '/': {
-          component: welcome
+          component: homepage
         },
         '/first': {
           component: items
