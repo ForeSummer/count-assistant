@@ -28,13 +28,8 @@
   <div id="main-container">
     <router-view></router-view>
   </div>
-  <footer class="page-footer">
-    <div class="footer-copyright">
-      <div class="container">
-      © 2016 Copyright 我们的组名不可能这么难起 
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </div>
+  <footer class="page-footer white black-text">
+    © 2016 Copyright 我们的组名不可能这么难起
   </footer>
 </div>
 </template>
@@ -79,7 +74,7 @@ body {
       margin-top: 15px;
     }
     .right {
-      font-family: 'Microsoft Yahei';
+      font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
     }
     .alert-num {
       margin-left: 10px;
@@ -93,7 +88,7 @@ body {
     .side-nav {
       user-select: none;
       text-align: center;
-      font-family: 'Microsoft Yahei';
+      font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
       .user-area {
         padding-top: 50px;
         background: #2196F3;
@@ -138,6 +133,12 @@ body {
   }
   .hidden {
     display: none;
+  }
+  footer {
+    width: 320px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
   }
 }
 
