@@ -1,20 +1,22 @@
 <template>
 <div>
   <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="nav-wrapper white">
+      <a href="#!" class="brand-logo black-text">EasyMeeting</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons"><img src="assets/Menu.png"></i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="sass.html" class="black-text">创建活动</a></li>
+        <li><a href="badges.html" class="black-text">个人中心</a></li>
+        <li><a href="collapsible.html" class="black-text">我的私信</a></li>
+        <li><a href="mobile.html" class="black-text">费用说明</a></li>
+        <li><a href="mobile.html" class="black-text">关于我们</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="sass.html">创建活动</a></li>
+        <li><a href="badges.html">个人中心</a></li>
+        <li><a href="collapsible.html">我的私信</a></li>
+        <li><a href="mobile.html">费用说明</a></li>
+        <li><a href="mobile.html">关于我们</a></li>
       </ul>
     </div>
   </nav>
@@ -22,26 +24,9 @@
     <router-view></router-view>
   </div>
   <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2014 Copyright Text
+      © 2016 Copyright 我们的组名不可能这么难起 
       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
@@ -68,7 +53,31 @@ export default {
 body {
   margin: 0;
   padding: 0;
+  .nav-wrapper {
+    .brand-logo {
+      margin-left: 5%;
+    }
+    .material-icons img {
+      width: 30px;
+      height: 30px;
+      margin-top: 15px;
+    }
+    .right {
+      font-family: 'Microsoft Yahei';
+    }
+    .side-nav {
+      text-align: center;
+      padding-top: 50px;
+      font-family: 'Microsoft Yahei';
+      li {
+        height: 70px;
+        a {
+          font-size: 18px;
+        }
+        
+      }
+    }
+  }
 }
-
 
 </style>
