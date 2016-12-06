@@ -18,7 +18,8 @@
     "vue-router": "^0.7.13",
     "vuex": "^0.8.2",
     "vuex-router-sync": "^2.1.0",
-    "materialize-css": "^0.97.8"
+    "materialize-css": "^0.97.8",
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

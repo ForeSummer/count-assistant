@@ -6,6 +6,7 @@ V.Vue.use(Vuex)
 import user from './modules/user'
 import activity from './modules/activity'
 import message from './modules/message'
+import main from './modules/main'
 
 
 export default new Vuex.Store({
@@ -13,5 +14,6 @@ export default new Vuex.Store({
     user,
     activity,
     message,
+    main,
   }
 })

@@ -1,7 +1,12 @@
-export const increment = ({ dispatch }) => dispatch('INCREMENT')
-export const decrement = ({ dispatch }) => dispatch('DECREMENT')
+import {
+  MAIN_TITLE_CHANGE
+} from './mutation-types'
 
 
 export function getUserInfo(openid) {
     $.get('')
+}
+
+export function changeMainTitle({dispatch}, title) {
+  dispatch(MAIN_TITLE_CHANGE, title)
 }

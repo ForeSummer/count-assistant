@@ -2,8 +2,8 @@
 <div>
   <nav>
     <div class="nav-wrapper blue">
-      <a href="#!" class="brand-logo white-text">EasyMeeting</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons"><img src="assets/Menu.png"></i></a>
+      <a href="#!" class="brand-logo white-text">{{maintitle}}</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html" class="white-text">创建活动</a></li>
         <li><a href="badges.html" class="white-text">个人中心</a></li>
@@ -17,7 +17,7 @@
           <a href="#" class="side-nav-username">{{username}}</a>
           <a href="#" class="side-nav-info">{{userinfo}}</a>
         </div>
-        <li><a href="sass.html">创建活动</a></li>
+        <li><a v-link="/activity/create">创建活动</a></li>
         <li><a href="badges.html">个人中心</a></li>
         <li><a href="collapsible.html">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a href="mobile.html">费用说明</a></li>
@@ -43,6 +43,8 @@ export default {
   },
   vuex: {
     getters: {
+      maintitle: state => state.main.data.title,
+
       username: state => state.user.data.nickname,
       userinfo: state => state.user.data.userinfo,
       unreadMessage: state => state.user.data.unreadMessageNum,
@@ -124,6 +126,13 @@ body {
         
       }
     }
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .hidden {
+    display: none;
   }
   footer {
     width: 320px;
