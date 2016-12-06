@@ -1,15 +1,15 @@
 <template>
 <div>
   <nav>
-    <div class="nav-wrapper white">
-      <a href="#!" class="brand-logo black-text">EasyMeeting</a>
+    <div class="nav-wrapper blue">
+      <a href="#!" class="brand-logo white-text">EasyMeeting</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons"><img src="assets/Menu.png"></i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html" class="black-text">创建活动</a></li>
-        <li><a href="badges.html" class="black-text">个人中心</a></li>
-        <li><a href="collapsible.html" class="black-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
-        <li><a href="mobile.html" class="black-text">费用说明</a></li>
-        <li><a href="mobile.html" class="black-text">关于我们</a></li>
+        <li><a href="sass.html" class="white-text">创建活动</a></li>
+        <li><a href="badges.html" class="white-text">个人中心</a></li>
+        <li><a href="collapsible.html" class="white-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
+        <li><a href="mobile.html" class="white-text">费用说明</a></li>
+        <li><a href="mobile.html" class="white-text">关于我们</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <div class="user-area">
