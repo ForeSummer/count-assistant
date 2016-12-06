@@ -3,6 +3,7 @@ import welcome from  './components/welcome'
 import items from './components/items'
 import customer from './components/customer'
 import result from './components/result'
+import actCreate from './components/activity-create'
 
 export default function(router) {
   router.map({
@@ -12,10 +13,10 @@ export default function(router) {
         '/': {
           component: welcome
         },
-        '/first': {
-          component: items
+        '/activity/create': {
+          component: actCreate
         },
-        '/second': {
+        '/activity／test': {
           component: customer
         },
         '/result': {

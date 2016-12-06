@@ -9,6 +9,8 @@ import store from './vuex/store'
 
 import '../node_modules/materialize-css/dist/css/materialize.min.css'
 import '../node_modules/materialize-css/dist/js/materialize.min.js'
+import '../node_modules/font-awesome/css/font-awesome.min.css'
+
 import materialize from 'materialize-css'
 
 V.Vue.use(Router)
