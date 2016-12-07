@@ -9,7 +9,7 @@
   </div>
   <div class="search-field">
     <input class="input" id="search" type="text" class="validate" v-model="searchContent">
-    <button class="btn" type="submit" name="action" v-click="search">搜索</button>
+    <button class="btn" type="submit" name="action" v-on:click="search()">搜索</button>
   </div>
   <div class="act-list">
     <div class="title">强烈推荐</div>
