@@ -1,5 +1,12 @@
 <template>
-  <div class="banner"><img src="../assets/banner.jpg"></div>
+  <div class="carousel carousel-slider center" data-indicators="true">
+    <div class="carousel-item white-text" href="#one!">
+      <img src="../assets/banner.png">
+    </div>
+    <div class="carousel-item white-text" href="#two!">
+      <img src="../assets/banner.png">
+    </div>
+  </div>
   <div class="about">
     <div class="title">关于我们</div>
     <hr>
@@ -14,22 +21,6 @@
 
 <style lang="less">
 
-.banner {
-  @media screen and (min-width: 961px) {
-    width: 960px;
-    margin: 0 auto;
-    img {
-      width: 960px;
-      height: 400px;
-    }
-  }
-  @media screen and (max-width: 960px) {
-    img {
-      width: 100%;
-      height: 200px;
-    }
-  }
-}
 .about {
   margin-top: 30px;
   font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
@@ -74,6 +65,9 @@
 <script>
 export default {
   name: 'about',
+  ready: function() {
+    $('.carousel.carousel-slider').carousel({full_width: true});
+  },
   methods: {
     
   }

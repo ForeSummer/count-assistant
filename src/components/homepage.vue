@@ -1,5 +1,12 @@
 <template>
-  <div class="banner"><img src="../assets/banner.png"></div>
+  <div class="carousel carousel-slider center" data-indicators="true">
+    <div class="carousel-item white-text" href="#one!">
+      <img src="../assets/banner.png">
+    </div>
+    <div class="carousel-item white-text" href="#two!">
+      <img src="../assets/banner.png">
+    </div>
+  </div>
   <div class="search-field">
     <input class="input" id="search" type="text" class="validate" v-model="searchContent">
     <button class="btn" type="submit" name="action" v-click="search">搜索</button>
@@ -46,8 +53,12 @@
 
 <style lang="less">
 
-.banner {
+.carousel img {
   width: 100%;
+  height: 400px;
+  @media screen and (max-width: 960px) {
+    height: 200px;
+  }
 }
 
 .search-field {
@@ -140,6 +151,7 @@ export default {
   },
   ready: function() {
     this.getActList()
+    $('.carousel.carousel-slider').carousel({full_width: true});
   },
   methods: {
     search: function() {

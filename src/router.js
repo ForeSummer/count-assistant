@@ -6,10 +6,6 @@ import actList from './components/activity-list'
 import actDetail from './components/activity-detail'
 import usrIntro from './components/user-intro'
 import message from './components/message'
-import welcome from  './components/welcome'
-import items from './components/items'
-import customer from './components/customer'
-import result from './components/result'
 import actCreate from './components/activity-create'
 
 export default function(router) {
@@ -40,12 +36,6 @@ export default function(router) {
         },
         '/activity/create': {
           component: actCreate
-        },
-        '/activity/test': {
-          component: customer
-        },
-        '/result': {
-          component: result
         }
       }
     }  
