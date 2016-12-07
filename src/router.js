@@ -5,6 +5,7 @@ import price from './components/price'
 import actList from './components/activity-list'
 import actDetail from './components/activity-detail'
 import usrIntro from './components/user-intro'
+import usrModify from './components/user-modify'
 import message from './components/message'
 import actCreate from './components/activity-create'
 
@@ -30,6 +31,9 @@ export default function(router) {
         },
         '/user/:id': {
           component: usrIntro
+        },
+        '/modify': {
+          component: usrModify
         },
         '/message': {
           component: message

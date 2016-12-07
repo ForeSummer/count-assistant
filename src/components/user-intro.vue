@@ -4,56 +4,105 @@
       <img class="user-image" src="../assets/huaji.jpg">
     </div>
     <div class="user-info col s12 m5">
-      <div class="user-title">User {{focusUser.name}}</div>
+      <div class="user-title">User {{focusUser.nickname}}</div>
       <hr>
       <div class="user-mobile"><i class="fa fa-lg fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;手机: 
-        <span id="user-mobile">12345678900</span>
+        <span id="user-mobile">{{focusUser.phone}}</span>
       </div>
       <div class="user-mail"><i class="fa fa-lg fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;邮箱: 
-        <span id="user-mail">anonymous@easymeeting.com</span>
-      </div>
-      <div class="user-wechat"><i class="fa fa-lg fa-wechat" aria-hidden="true"></i>&nbsp;&nbsp;微信: 
-        <span id="user-wechat">wx_anonymous</span>
+        <span id="user-mail">{{focusUser.mail}}</span>
       </div>
       <hr>
       <div class="user-intro"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;个人简介: 
-        <span id="user-intro">只是一条简短的个人信息简介，再填充一点字数</span>
+        <span id="user-intro">{{focusUser.userinfo}}</span>
+      </div>
+      <div class="leave-msg" v-if="!focusUser.isSelf">
+        <div class="input-field">
+          <textarea id="msg" class="materialize-textarea"></textarea>
+          <label for="msg">留言内容</label>
+        </div>
+        <a class="btn">留言</a>
+      </div>
+      <div class="modify" v-if="focusUser.isSelf">
+        <a class="btn" v-link="{ path: '/modify/' }">更改个人信息</a>
       </div>
     </div>
   </div>
-  <div class="act-list">
-    <div class="title">您创建的活动</div>
+  <div class="act-list" v-if="!focusUser.isSelf">
+    <div class="title">ta创建的活动</div>
     <hr>
     <ul>
-      <li>
+      <li v-for="i in focusUser.activityCreated">
         <div class="card">
           <div class="card-image">
             <img src="../assets/huaji.jpg">
           </div>
           <div class="card-content">
-            <div class="title">Title</div>
-            <div class="time">活动时间: 2016-12-6</div>
-            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">412A</span>计划人数：<span id="num">4</span></div>
-            <div class="info">活动简介: <span id="info">一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话</span></div>
+            <div class="title">{{ i.title }}</div>
+            <div class="time">活动时间: {{ i.time }}</div>
+            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
+              计划人数：<span id="num">{{ i.num }}</span></div>
+            <div class="info">活动简介: <span id="info">{{ i.brief }}</span></div>
           </div>
        </div>
       </li>
     </ul>
   </div>
-  <div class="act-list">
-    <div class="title">您参加的活动</div>
+  <div class="act-list" v-if="!focusUser.isSelf">
+    <div class="title">ta参加的活动</div>
     <hr>
     <ul>
-      <li>
+      <li v-for="i in focusUser.activityParticipate">
         <div class="card">
           <div class="card-image">
             <img src="../assets/huaji.jpg">
           </div>
           <div class="card-content">
-            <div class="title">Title</div>
-            <div class="time">活动时间: 2016-12-6</div>
-            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">412A</span>计划人数：<span id="num">4</span></div>
-            <div class="info">活动简介: <span id="info">一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话</span></div>
+            <div class="title">{{ i.title }}</div>
+            <div class="time">活动时间: {{ i.time }}</div>
+            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
+              计划人数：<span id="num">{{ i.num }}</span></div>
+            <div class="info">活动简介: <span id="info">{{ i.brief }}</span></div>
+          </div>
+       </div>
+      </li>
+    </ul>
+  </div>
+  <div class="act-list" v-if="focusUser.isSelf">
+    <div class="title">您创建的活动</div>
+    <hr>
+    <ul>
+      <li v-for="i in focusUser.activityCreated">
+        <div class="card">
+          <div class="card-image">
+            <img src="../assets/huaji.jpg">
+          </div>
+          <div class="card-content">
+            <div class="title">{{ i.title }}</div>
+            <div class="time">活动时间: {{ i.time }}</div>
+            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
+              计划人数：<span id="num">{{ i.num }}</span></div>
+            <div class="info">活动简介: <span id="info">{{ i.brief }}</span></div>
+          </div>
+       </div>
+      </li>
+    </ul>
+  </div>
+  <div class="act-list" v-if="focusUser.isSelf">
+    <div class="title">您参加的活动</div>
+    <hr>
+    <ul>
+      <li v-for="i in focusUser.activityParticipate">
+        <div class="card">
+          <div class="card-image">
+            <img src="../assets/huaji.jpg">
+          </div>
+          <div class="card-content">
+            <div class="title">{{ i.title }}</div>
+            <div class="time">活动时间: {{ i.time }}</div>
+            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
+              计划人数：<span id="num">{{ i.num }}</span></div>
+            <div class="info">活动简介: <span id="info">{{ i.brief }}</span></div>
           </div>
        </div>
       </li>
@@ -87,11 +136,14 @@
   .user-mail {
     margin-top: 10px;
   }
-  .user-wechat {
-    margin-top: 10px;
-  }
   .user-intro {
     margin-top: 10px;
+  }
+  .leave-msg {
+    margin-top: 24px;
+  }
+  .modify {
+    margin-top: 24px;
   }
 }
 
@@ -161,7 +213,7 @@ import {
 } from '../vuex/mutation-types'
 
 export default {
-  name: 'homepage',
+  name: 'userIntro',
   vuex: {
     getters: {
       focusUser: state => state.user.data.focusUser
@@ -169,15 +221,15 @@ export default {
     actions: {
       getInfo: function({dispatch}) {
         $.get('').success(function(res) {
-          res = test_user_info
-          dispatch(USER_SET_INFO, res)
-        })
+          res = test_user_info;
+          dispatch(USER_SET_INFO, res);
+        });
       }
     }
   },
   ready:function() {
-    this.getInfo()
-  }
+    this.getInfo();
+  },
   methods: {
 
   }

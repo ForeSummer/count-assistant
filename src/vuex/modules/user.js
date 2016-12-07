@@ -9,7 +9,16 @@ const state = {
     'nickname': 'Test',
     'userinfo': 'This is a brief info',
     'unreadMessageNum': 1,
-    'focusUser': {}
+    'focusUser': {
+      'openid': -1,
+      'nickname': '',
+      'userinfo': '',
+      'phone': -1,
+      'mail': '',
+      'isSelf': false,
+      'activityCreated': [],
+      'activityParticipate': []
+    }
   },
   'status': {
 
@@ -24,7 +33,14 @@ const mutations = {
     //state.real_name = user.real_name
   },
   [USER_SET_INFO] (state, res) {
-
+    state.data.focusUser.openid = res.openid;
+    state.data.focusUser.nickname = res.nickname;
+    state.data.focusUser.userinfo = res.userinfo;
+    state.data.focusUser.phone = res.phone;
+    state.data.focusUser.mail = res.mail;
+    state.data.focusUser.activityCreated = res.activityCreated;
+    state.data.focusUser.activityParticipate = res.activityParticipate;
+    state.data.focusUser.isSelf = (state.data.openid == state.data.focusUser.openid);
   }
 }
 

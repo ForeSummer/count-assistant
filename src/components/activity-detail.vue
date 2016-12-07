@@ -4,31 +4,36 @@
       <img class="act-image" src="../assets/huaji.jpg">
     </div>
     <div class="act-info col s12 m5">
-      <div class="act-title">Title</div>
+      <div class="act-title">{{ act.title }}</div>
       <hr>
       <div class="act-time"><i class="fa fa-lg fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;活动时间: 
-        <span id="act-time">2016-12-6</span>
+        <span id="act-time">{{ act.time }}</span>
       </div>
       <div class="act-place"><i class="fa fa-lg fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;活动地点: 
-        <span id="act-place">412A</span>
+        <span id="act-place">{{ act.place }}</span>
       </div>
-      <div class="act-detail"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;活动简介: 
-        <span id="act-detail">一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话</span>
+      <div class="act-brief"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;活动简介: 
+        <span id="act-brief">{{ act.brief }}</span>
       </div>
       <hr>
       <div class="act-num">
         <span class="act-num-part">
           计划人数：
-          <span id="act-total-num">4</span>
+          <span id="act-total-num">{{ act.num }}</span>
         </span>
         <span class="act-num-part">
           剩余人数：
-          <span id="act-rest-num">4</span>
+          <span id="act-remain-num">{{ act.remain }}</span>
         </span>
       </div>
     </div>
   </div>
-  
+  <div class="row">
+    <div class="col m8 offset-m2 s12 offset-s0">
+      <hr>
+      {{ act.info }}
+    </div>
+  </div>
 </template>
 
 <style lang="less">
@@ -57,7 +62,7 @@
   .act-place {
     margin-top: 10px;
   }
-  .act-detail {
+  .act-brief {
     margin-top: 10px;
   }
   .act-num {
@@ -74,20 +79,31 @@
 </style>
 
 <script>
+import {
+  test_activity_detail
+} from './test' 
+
+import {
+  ACT_SET_DETAIL
+} from '../vuex/mutation-types'
+
 export default {
-  name: 'homepage',
+  name: 'activityDetail',
   vuex: {
     getters: {
       act: state => state.activity.data.currentAct,
     },
     actions: {
-      getActDetail: function() {
-        
+      getActDetail: function({dispatch}) {
+        $.get('').success(function(res) {
+          res = test_activity_detail;
+          dispatch(ACT_SET_DETAIL, res);
+        });
       }
     }
   },
   ready: function() {
-    console.log(this.getId())
+    this.getActDetail();
   },
   methods: {
     getId: function() {
