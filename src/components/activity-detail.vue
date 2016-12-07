@@ -31,7 +31,13 @@
   <div class="row">
     <div class="col m8 offset-m2 s12 offset-s0">
       <hr>
-      {{ act.info }}
+      <div class="act-info">{{ act.info }}</div>
+      <div v-if="!act.isAuthor" class="act-operation">
+        <a class="btn">我要报名</a>
+      </div>
+      <div v-if="act.isAuthor" class="act-operation">
+        <a class="btn">管理报名人员</a>
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +79,9 @@
       padding: 5px 15px 5px 15px;
       border-radius: 10px;
     }
+  }
+  .act-operation {
+    margin-top: 24px;
   }
 }
 

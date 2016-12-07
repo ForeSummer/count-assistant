@@ -35,10 +35,10 @@
       <li v-for="i in focusUser.activityCreated">
         <div class="card">
           <div class="card-image">
-            <img src="../assets/huaji.jpg">
+            <a v-link="{ path: '/activity/detail/' + i.id }"><img src="../assets/huaji.jpg"></a>
           </div>
           <div class="card-content">
-            <div class="title">{{ i.title }}</div>
+            <a v-link="{ path: '/activity/detail/' + i.id }"><div class="title">{{ i.title }}</div></a>
             <div class="time">活动时间: {{ i.time }}</div>
             <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
               计划人数：<span id="num">{{ i.num }}</span></div>
@@ -55,10 +55,10 @@
       <li v-for="i in focusUser.activityParticipate">
         <div class="card">
           <div class="card-image">
-            <img src="../assets/huaji.jpg">
+            <a v-link="{ path: '/activity/detail/' + i.id }"><img src="../assets/huaji.jpg"></a>
           </div>
           <div class="card-content">
-            <div class="title">{{ i.title }}</div>
+            <a v-link="{ path: '/activity/detail/' + i.id }"><div class="title">{{ i.title }}</div></a>
             <div class="time">活动时间: {{ i.time }}</div>
             <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
               计划人数：<span id="num">{{ i.num }}</span></div>
@@ -75,10 +75,10 @@
       <li v-for="i in focusUser.activityCreated">
         <div class="card">
           <div class="card-image">
-            <img src="../assets/huaji.jpg">
+            <a v-link="{ path: '/activity/detail/' + i.id }"><img src="../assets/huaji.jpg"></a>
           </div>
           <div class="card-content">
-            <div class="title">{{ i.title }}</div>
+            <a v-link="{ path: '/activity/detail/' + i.id }"><div class="title">{{ i.title }}</div></a>
             <div class="time">活动时间: {{ i.time }}</div>
             <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
               计划人数：<span id="num">{{ i.num }}</span></div>
@@ -95,10 +95,10 @@
       <li v-for="i in focusUser.activityParticipate">
         <div class="card">
           <div class="card-image">
-            <img src="../assets/huaji.jpg">
+            <a v-link="{ path: '/activity/detail/' + i.id }"><img src="../assets/huaji.jpg"></a>
           </div>
           <div class="card-content">
-            <div class="title">{{ i.title }}</div>
+            <a v-link="{ path: '/activity/detail/' + i.id }"><div class="title">{{ i.title }}</div></a>
             <div class="time">活动时间: {{ i.time }}</div>
             <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{ i.place }}</span>
               计划人数：<span id="num">{{ i.num }}</span></div>
@@ -184,6 +184,7 @@
       padding-left: 200px;
       font-size: 1.1em;
       .title {
+        color: black;
         padding-left: 0px;
       }
       .info {
