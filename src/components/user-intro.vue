@@ -1,11 +1,28 @@
 <template>
-  <div class="banner"><img src="../assets/banner.jpg"></div>
-  <div class="search-field">
-    <input class="input" id="search" type="text" class="validate" v-model="searchContent">
-    <button class="btn" type="submit" name="action" v-click="search">搜索</button>
+  <div class="row">
+    <div class="user-icon col s10 offset-s2 m3 offset-m2">
+      <img class="user-image" src="../assets/huaji.jpg">
+    </div>
+    <div class="user-info col s12 m5">
+      <div class="user-title">User Anonymous</div>
+      <hr>
+      <div class="user-mobile"><i class="fa fa-lg fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;手机: 
+        <span id="user-mobile">12345678900</span>
+      </div>
+      <div class="user-mail"><i class="fa fa-lg fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;邮箱: 
+        <span id="user-mail">anonymous@easymeeting.com</span>
+      </div>
+      <div class="user-wechat"><i class="fa fa-lg fa-wechat" aria-hidden="true"></i>&nbsp;&nbsp;微信: 
+        <span id="user-wechat">wx_anonymous</span>
+      </div>
+      <hr>
+      <div class="user-intro"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;个人简介: 
+        <span id="user-intro">只是一条简短的个人信息简介，再填充一点字数</span>
+      </div>
+    </div>
   </div>
   <div class="act-list">
-    <div class="title">强烈推荐</div>
+    <div class="title">您创建的活动</div>
     <hr>
     <ul>
       <li>
@@ -24,7 +41,7 @@
     </ul>
   </div>
   <div class="act-list">
-    <div class="title">最新活动</div>
+    <div class="title">您参加的活动</div>
     <hr>
     <ul>
       <li>
@@ -46,34 +63,35 @@
 
 <style lang="less">
 
-.banner {
-  @media screen and (min-width: 961px) {
-    width: 960px;
-    margin: 0 auto;
-    img {
-      width: 960px;
-      height: 400px;
-    }
-  }
-  @media screen and (max-width: 960px) {
-    img {
-      width: 100%;
-      height: 200px;
-    }
-  }
-}
-
-.search-field {
-  width: 350px;
-  margin: 0 auto;
+.row {
   margin-top: 20px;
-  margin-bottom: 20px;
-  .input {
-    width: 200px;
+  font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
+  font-size: 18px;
+  .user-image {
+    width: 250px;
+    margin: 0 auto;
+    @media screen and (max-width: 350px) {
+      width: 200px;
+    }
+    @media screen and (max-width: 1000px) and (min-width: 700px) {
+      width: 160px;
+    }
   }
-  .btn {
-    margin-left: 20px;
-    width: 100px;
+  .user-title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .user-mobile {
+    margin-top: 10px;
+  }
+  .user-mail {
+    margin-top: 10px;
+  }
+  .user-wechat {
+    margin-top: 10px;
+  }
+  .user-intro {
+    margin-top: 10px;
   }
 }
 
@@ -136,28 +154,8 @@
 <script>
 export default {
   name: 'homepage',
-  data: function() {
-    return {
-      searchContent: ''
-    }
-  },
-  vuex: {
-    getters: {
-      
-    },
-    actions: {
-      getActList: function() {
-
-      }
-    }
-  },
-  ready: function() {
-    this.getActList()
-  },
   methods: {
-    search: function() {
-      this.searchContent = ''
-    }
+
   }
 }
 </script>
