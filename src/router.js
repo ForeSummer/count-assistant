@@ -5,6 +5,7 @@ import price from './components/price'
 import actList from './components/activity-list'
 import actDetail from './components/activity-detail'
 import usrIntro from './components/user-intro'
+import message from './components/message'
 import welcome from  './components/welcome'
 import items from './components/items'
 import customer from './components/customer'
@@ -33,6 +34,9 @@ export default function(router) {
         },
         '/user/intro': {
           component: usrIntro
+        },
+        '/message': {
+          component: message
         },
         '/activity/create': {
           component: actCreate
