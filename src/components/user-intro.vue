@@ -115,6 +115,11 @@
   }
   .card {
     font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
+    overflow: hidden;
+    height: 200px;
+    @media screen and (max-width: 960px) {
+      height: 130px;
+    }
     .card-image {
       width: 150px;
       @media screen and (max-width: 960px) {
@@ -124,24 +129,21 @@
       float: left;
     }
     .card-content {
-      margin-top: 0px;
-      padding-top: 0px;
       padding-left: 200px;
-      height: 200px;
       font-size: 1.1em;
-      @media screen and (max-width: 960px) {
-        padding-left: 120px;
-        height: 120px;
-        font-size: 0.8em;
-      }
       .title {
         padding-left: 0px;
       }
       .info {
         margin-top: 5px;
-        height: 31px;
-        line-height: 16px;
-        overflow-y: hidden;
+        height: 50px;
+        line-height: 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @media screen and (max-width: 960px) {
+          height: 32px;
+          line-height: 16px;
+        }
       }
     }
   }
