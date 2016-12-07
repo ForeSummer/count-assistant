@@ -6,7 +6,7 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html" class="white-text">创建活动</a></li>
-        <li><a href="badges.html" class="white-text">个人中心</a></li>
+        <li><a href="/#!/user/intro" class="white-text">个人中心</a></li>
         <li><a href="collapsible.html" class="white-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a href="/#!/price" class="white-text">费用说明</a></li>
         <li><a href="/#!/about" class="white-text">关于我们</a></li>
@@ -18,7 +18,7 @@
           <a href="#" class="side-nav-info">{{userinfo}}</a>
         </div>
         <li><a v-link="/activity/create">创建活动</a></li>
-        <li><a href="badges.html">个人中心</a></li>
+        <li><a href="/#!/user/intro">个人中心</a></li>
         <li><a href="collapsible.html">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a href="/#!/price">费用说明</a></li>
         <li><a href="/#!/about">关于我们</a></li>
