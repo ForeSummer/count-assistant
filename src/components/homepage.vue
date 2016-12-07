@@ -1,5 +1,5 @@
 <template>
-  <div class="banner"><img src="../assets/banner.jpg"></div>
+  <div class="banner"><img src="../assets/banner.png"></div>
   <div class="search-field">
     <input class="input" id="search" type="text" class="validate" v-model="searchContent">
     <button class="btn" type="submit" name="action" v-on:click="search()">搜索</button>
@@ -47,20 +47,7 @@
 <style lang="less">
 
 .banner {
-  @media screen and (min-width: 961px) {
-    width: 960px;
-    margin: 0 auto;
-    img {
-      width: 960px;
-      height: 400px;
-    }
-  }
-  @media screen and (max-width: 960px) {
-    img {
-      width: 100%;
-      height: 200px;
-    }
-  }
+  width: 100%;
 }
 
 .search-field {
