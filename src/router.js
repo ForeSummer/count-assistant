@@ -28,7 +28,7 @@ export default function(router) {
         '/activity/detail/:id': {
           component: actDetail
         },
-        '/user/intro': {
+        '/user/:id': {
           component: usrIntro
         },
         '/message': {

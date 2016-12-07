@@ -6,8 +6,8 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
       <ul class="right hide-on-med-and-down">
         <li><a v-link="{ path: '/activity/create' }" class="white-text">创建活动</a></li>
-        <li><a href="badges.html" class="white-text">个人中心</a></li>
-        <li><a href="collapsible.html" class="white-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
+        <li><a v-link="{ path: '/user/' + userid }" class="white-text">个人中心</a></li>
+        <li><a v-link="{ path: '/message' }" class="white-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a v-link="{ path: '/price' }" class="white-text">费用说明</a></li>
         <li><a v-link="{ path: '/about' }" class="white-text">关于我们</a></li>
       </ul>
@@ -18,8 +18,8 @@
           <a href="#" class="side-nav-info">{{userinfo}}</a>
         </div>
         <li><a v-link="{ path: '/activity/create' }">创建活动</a></li>
-        <li><a href="badges.html">个人中心</a></li>
-        <li><a href="collapsible.html">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
+        <li><a v-link="{ path: '/user/' + userid }" >个人中心</a></li>
+        <li><a v-link="{ path: '/message' }" >我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a v-link="{ path: '/price' }">费用说明</a></li>
         <li><a v-link="{ path: '/about' }">关于我们</a></li>
       </ul>
@@ -50,6 +50,7 @@ export default {
       maintitle: state => state.main.data.title,
 
       username: state => state.user.data.nickname,
+      userid: state => state.user.data.openid,
       userinfo: state => state.user.data.userinfo,
       unreadMessage: state => state.user.data.unreadMessageNum,
     },

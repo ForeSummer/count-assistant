@@ -4,7 +4,7 @@ import {
 
 const state = {
   'data': {
-    'openid': '',
+    'openid': 1,
     'nickname': 'Test',
     'userinfo': 'This is a brief info',
     'unreadMessageNum': 1,
