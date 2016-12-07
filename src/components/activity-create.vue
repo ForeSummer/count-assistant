@@ -37,7 +37,7 @@
             <label>活动详细描述</label>
           </div>
           <div class="input-field col s6">
-            <input value="" type="text" class="validate" id="start-datepicker" data-fx-mobile="true" data-large-mode="true">
+            <input value="" type="text" class="validate datepicker" id="start-datepicker" data-fx-mobile="true" data-large-mode="true" data-large-default="true">
             <label>选择开始日期</label>
           </div>
           <div class="input-field col s6">
@@ -45,7 +45,7 @@
             <label>选择开始时间</label>
           </div>
           <div class="input-field col s6">
-            <input value="" type="text" class="validate" id="end-datepicker" data-fx-mobile="true" data-large-mode="true">
+            <input value="" type="text" class="validate datepicker" id="end-datepicker" data-fx-mobile="true" data-large-mode="true" data-large-default="true">
             <label>选择结束日期</label>
           </div>
           <div class="input-field col s6">
@@ -104,9 +104,10 @@ export default {
   ready: function() {
     this.changeMainTitle('创建活动')
     $('#start-timepicker').timeDropper()
-    $('#start-datepicker').dateDropper()
+    //$('#start-datepicker').dateDropper()
+    $('.datepicker').dateDropper()
     $('#end-timepicker').timeDropper()
-    $('#end-datepicker').dateDropper()
+    //$('#end-datepicker').dateDropper()
   },
   methods:{
     upLoadImg: function() {
