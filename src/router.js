@@ -8,6 +8,7 @@ import usrIntro from './components/user-intro'
 import usrModify from './components/user-modify'
 import message from './components/message'
 import actCreate from './components/activity-create'
+import login from './login'
 
 export default function(router) {
   router.map({
@@ -42,6 +43,9 @@ export default function(router) {
           component: actCreate
         }
       }
-    }  
+    },
+    '/login': {
+      component: login
+    }
   })
 }
