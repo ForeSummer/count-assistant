@@ -11,6 +11,12 @@ import '../node_modules/materialize-css/dist/css/materialize.min.css'
 import '../node_modules/materialize-css/dist/js/materialize.min.js'
 import '../node_modules/font-awesome/css/font-awesome.min.css'
 
+import '../static/timedrop/timedropper.min.css'
+import '../static/timedrop/timedropper.js'
+
+import '../static/datedrop/datedropper.min.css'
+import '../static/datedrop/datedropper.js'
+
 import materialize from 'materialize-css'
 
 V.Vue.use(Router)
