@@ -4,7 +4,7 @@
       <img class="user-image" src="../assets/huaji.jpg">
     </div>
     <div class="user-info col s12 m5">
-      <div class="user-title">User Anonymous</div>
+      <div class="user-title">User {{focusUser.name}}</div>
       <hr>
       <div class="user-mobile"><i class="fa fa-lg fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;手机: 
         <span id="user-mobile">12345678900</span>
@@ -152,8 +152,32 @@
 </style>
 
 <script>
+import {
+  test_user_info
+} from './test' 
+
+import {
+  USER_SET_INFO
+} from '../vuex/mutation-types'
+
 export default {
   name: 'homepage',
+  vuex: {
+    getters: {
+      focusUser: state => state.user.data.focusUser
+    },
+    actions: {
+      getInfo: function({dispatch}) {
+        $.get('').success(function(res) {
+          res = test_user_info
+          dispatch(USER_SET_INFO, res)
+        })
+      }
+    }
+  },
+  ready:function() {
+    this.getInfo()
+  }
   methods: {
 
   }

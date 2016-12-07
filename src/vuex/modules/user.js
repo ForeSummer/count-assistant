@@ -1,5 +1,6 @@
 import {
-  USER_SET
+  USER_SET,
+  USER_SET_INFO
 } from '../mutation-types'
 
 const state = {
@@ -8,6 +9,7 @@ const state = {
     'nickname': 'Test',
     'userinfo': 'This is a brief info',
     'unreadMessageNum': 1,
+    'focusUser': {}
   },
   'status': {
 
@@ -20,6 +22,9 @@ const mutations = {
     //state.authenticated = true,
     //state.new_message_count = 0,
     //state.real_name = user.real_name
+  },
+  [USER_SET_INFO] (state, res) {
+
   }
 }
 
