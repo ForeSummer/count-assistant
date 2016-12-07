@@ -34,7 +34,7 @@
             <label>活动详细描述</label>
           </div>
           <div class="input-field col s6">
-            <input value="" type="text" class="validate date-picker" id="start-datepicker" v-model="startdate" data-fx-mobile="true" data-large-mode="true" data-large-default="true">
+            <input value="" type="text" class="validate date-picker" id="start-datepicker" v-model="startdate" data-fx-mobile="true" data-large-mode="true" data-large-default="true" data-max-year="2030" data-min-year="2016">
             <label>开始日期</label>
           </div>
           <div class="input-field col s6">
@@ -42,7 +42,7 @@
             <label>开始时间</label>
           </div>
           <div class="input-field col s6">
-            <input value="" type="text" class="validate date-picker" id="end-datepicker" v-model="enddate" data-fx-mobile="true" data-large-mode="true" data-large-default="true">
+            <input value="" type="text" class="validate date-picker" id="end-datepicker" v-model="enddate" data-fx-mobile="true" data-large-mode="true" data-large-default="true" data-max-year="2030" data-min-year="2016">
             <label>结束日期</label>
           </div>
           <div class="input-field col s6">
@@ -95,9 +95,9 @@ export default {
       'type': '',
       'description': '',
       'startdate': null,
-      'starttime': null,
+      'starttime': ' ',
       'enddate': null,
-      'endtime': null,
+      'endtime': ' ',
       'limit': '',
     }
   },
@@ -116,17 +116,13 @@ export default {
   },
   ready: function() {
     this.changeMainTitle('创建活动')
-    //$('#start-timepicker').timeDropper()
-    //$('#start-datepicker').dateDropper()
-    $('.date-picker').dateDropper()
+    $('.date-picker').dateDropper({})
     $('.time-picker').timeDropper({
       format: 'HH:mm'
     })
     this.starttime = '00:00'
     this.endtime = '00:00'
     $('#modal1').modal()
-    //$('#end-timepicker').timeDropper()
-    //$('#end-datepicker').dateDropper()
   },
   methods:{
     upLoadImg: function() {
