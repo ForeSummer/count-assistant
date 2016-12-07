@@ -73,9 +73,9 @@
 
 <script>
 export default {
-  name: 'homepage',
+  name: 'about',
   methods: {
-
+    
   }
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="banner"><img src="../assets/banner.jpg"></div>
   <div class="search-field">
-    <input class="input" id="search" type="text" class="validate">
-    <button class="btn" type="submit" name="action">搜索</button>
+    <input class="input" id="search" type="text" class="validate" v-model="searchContent">
+    <button class="btn" type="submit" name="action" v-click="search">搜索</button>
   </div>
   <div class="act-list">
     <div class="title">强烈推荐</div>
@@ -134,8 +134,28 @@
 <script>
 export default {
   name: 'homepage',
-  methods: {
+  data: function() {
+    return {
+      searchContent: ''
+    }
+  },
+  vuex: {
+    getters: {
+      
+    },
+    actions: {
+      getActList: function() {
 
+      }
+    }
+  },
+  ready: function() {
+    this.getActList()
+  },
+  methods: {
+    search: function() {
+      this.searchContent = ''
+    }
   }
 }
 </script>

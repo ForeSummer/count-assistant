@@ -27,7 +27,7 @@ export default function(router) {
         '/activity/list': {
           component: actList
         },
-        '/activity/detail': {
+        '/activity/detail/:id': {
           component: actDetail
         },
         '/activity/create': {

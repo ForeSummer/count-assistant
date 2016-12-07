@@ -37,12 +37,20 @@
             <label>活动详细描述</label>
           </div>
           <div class="input-field col s6">
-            <input value="" type="text" class="validate" id="datepicker" data-fx-mobile="true" data-large-mode="true">
+            <input value="" type="text" class="validate" id="start-datepicker" data-fx-mobile="true" data-large-mode="true">
             <label>选择开始日期</label>
           </div>
           <div class="input-field col s6">
-            <input value="" type="text" class="validate" id="timepicker">
+            <input value="" type="text" class="validate" id="start-timepicker">
             <label>选择开始时间</label>
+          </div>
+          <div class="input-field col s6">
+            <input value="" type="text" class="validate" id="end-datepicker" data-fx-mobile="true" data-large-mode="true">
+            <label>选择结束日期</label>
+          </div>
+          <div class="input-field col s6">
+            <input value="" type="text" class="validate" id="end-timepicker">
+            <label>选择结束时间</label>
           </div>
         </div>
       </div>
@@ -72,6 +80,14 @@ export default {
   components: {
 
   },
+  data: function(){
+    return {
+      myAct: {
+        'name': '',
+        'place': '',
+      }
+    }
+  },
   vuex: {
     getters: {
       maintitle: state => state.main.data.title,
@@ -87,9 +103,10 @@ export default {
   },
   ready: function() {
     this.changeMainTitle('创建活动')
-    $('#timepicker').timeDropper()
-    $('#datepicker').dateDropper()
-    
+    $('#start-timepicker').timeDropper()
+    $('#start-datepicker').dateDropper()
+    $('#end-timepicker').timeDropper()
+    $('#end-datepicker').dateDropper()
   },
   methods:{
     upLoadImg: function() {

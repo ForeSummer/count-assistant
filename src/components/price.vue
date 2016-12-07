@@ -75,7 +75,7 @@
 
 <script>
 export default {
-  name: 'homepage',
+  name: 'price',
   methods: {
 
   }

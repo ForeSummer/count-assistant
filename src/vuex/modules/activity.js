@@ -1,5 +1,5 @@
 import {
-  
+  ACT_INIT,
 } from '../mutation-types'
 
 const state = {
@@ -8,6 +8,7 @@ const state = {
       'id': '',
       'name': '',
       'place': '',
+      'isAuthor': false,
     },
     'ActList': {
 

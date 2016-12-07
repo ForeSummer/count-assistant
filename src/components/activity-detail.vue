@@ -77,8 +77,23 @@
 <script>
 export default {
   name: 'homepage',
+  vuex: {
+    getters: {
+      act: state => state.activity.data.currentAct,
+    },
+    actions: {
+      getActDetail: function() {
+        
+      }
+    }
+  },
+  ready: function() {
+    console.log(this.getId())
+  },
   methods: {
-
+    getId: function() {
+      return this.$route.params.id
+    }
   }
 }
 </script>
