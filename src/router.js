@@ -7,6 +7,7 @@ import actDetail from './components/activity-detail'
 import usrIntro from './components/user-intro'
 import message from './components/message'
 import actCreate from './components/activity-create'
+import validate from './components/validate'
 
 export default function(router) {
   router.map({
@@ -38,6 +39,9 @@ export default function(router) {
           component: actCreate
         }
       }
-    }  
+    },
+    '/validate': {
+      component: validate
+    }
   })
 }

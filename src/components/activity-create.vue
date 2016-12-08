@@ -3,7 +3,7 @@
     <div class="row">
       <h2>创建活动</h2>
     </div>
-    <div class="progress row hidden">
+    <div class="progress row" v-show="isSubmiting">
       <div class="indeterminate"></div>
     </div>
     <div class="row">
@@ -49,17 +49,17 @@
             <input value="" type="text" class="validate time-picker" id="end-timepicker" v-model="endtime">
             <label>结束时间</label>
           </div>
-          <a class="waves-effect waves-light btn" v-on:click="submit()">Submit</a>
+          <a class="waves-effect btn" v-on:click="submit()">Submit</a>
         </div>
       </div>
     </div>
-    <div id="modal1" class="modal">
+    <div id="alert-modal" class="modal">
       <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h4>提示信息</h4>
+        <p>{{modalmessage}}</p>
       </div>
       <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
       </div>
     </div>
   </div>
@@ -79,7 +79,9 @@ import {
 
 
 import {
-  changeMainTitle
+  changeMainTitle,
+  getTimeStamp,
+  getTimeString
 } from '../vuex/actions'
 
 export default {
@@ -99,6 +101,9 @@ export default {
       'enddate': null,
       'endtime': ' ',
       'limit': '',
+
+      'modalmessage': '',
+      'isSubmiting': false
     }
   },
   vuex: {
@@ -122,15 +127,68 @@ export default {
     })
     this.starttime = '00:00'
     this.endtime = '00:00'
-    $('#modal1').modal()
+    $('#alert-modal').modal()
   },
   methods:{
     upLoadImg: function() {
 
     },
     submit: function() {
-      console.log('submit')
-      $('#modal1').modal('open')
+      if(!this.name) {
+        this.modalmessage = '活动名称不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.place) {
+        this.modalmessage = '活动地点不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.info) {
+        this.modalmessage = '活动简介不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.description) {
+        this.modalmessage = '活动描述不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.startdate) {
+        this.modalmessage = '请选择活动开始日期！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.enddate) {
+        this.modalmessage = '请选择活动结束日期！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.starttime || this.starttime == ' ') {
+        this.modalmessage = '请选择活动开始时间！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.starttime || this.starttime == ' ') {
+        this.modalmessage = '请选择活动结束时间！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      let start = getTimeStamp(this.startdate, this.starttime)
+      let end = getTimeStamp(this.enddate, this.endtime)
+      let now = Date.now()
+      if(start < now) {
+        this.modalmessage = '活动开始时间不能早于当前时间！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      if(end < start) {
+        this.modalmessage = '活动结束时间应晚于活动开始时间！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      this.isSubmiting = true
+      this.createActivity({})
     }
   }
 }

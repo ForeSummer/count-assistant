@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="act-list">
+  <div class="act-list" v-if="">
     <div class="title">您创建的活动</div>
     <hr>
     <ul>
@@ -177,7 +177,7 @@ export default {
   },
   ready:function() {
     this.getInfo()
-  }
+  },
   methods: {
 
   }
