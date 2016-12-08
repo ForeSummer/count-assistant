@@ -5,9 +5,11 @@ import price from './components/price'
 import actList from './components/activity-list'
 import actDetail from './components/activity-detail'
 import usrIntro from './components/user-intro'
+import usrModify from './components/user-modify'
 import message from './components/message'
 import actCreate from './components/activity-create'
 import validate from './components/validate'
+import login from './login'
 
 export default function(router) {
   router.map({
@@ -29,8 +31,11 @@ export default function(router) {
         '/activity/detail/:id': {
           component: actDetail
         },
-        '/user/intro': {
+        '/user/:id': {
           component: usrIntro
+        },
+        '/modify': {
+          component: usrModify
         },
         '/message': {
           component: message
@@ -42,6 +47,9 @@ export default function(router) {
     },
     '/validate': {
       component: validate
+    },
+    '/login': {
+      component: login
     }
   })
 }
