@@ -9,17 +9,22 @@ const state = {
     'currentAct': {
       'id': -1,
       'title': '',
+      'type': '',
       'time': '',
       'place': '',
       'members': -1,
       'passed': -1,
+      'denyed': -1,
+      'participated': -1,
       'isAuthor': false,
       'brief': '',
       'info': '',
       'host': '',
       'contact': '',
       'image': '',
-      'review': ''
+      'review': 'true',
+      'startTime': '',
+      'endTime': ''
     },
     'actList': [
       {
@@ -56,7 +61,8 @@ const mutations = {
     state.data.currentAct.info = res.info;
   },
   [ACT_SET_LIST] (state, data) {
-
+    console.log(data)
+    actList = data
   },
   [ACT_SET_TITLE] (state, title) {
     state.status.listTitle = title

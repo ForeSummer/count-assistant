@@ -71,3 +71,48 @@ export const test_user_create = {
 		}
 	]
 }
+
+
+export const test_act = {
+	'code': 0,
+	'data': [
+		{
+          'title': "Deep Dark Fantasy",
+		  'id': 1,
+		  'type': "哲学活动",
+          'startTime': 1482837273007,
+		  'endTime': 1482837273007,
+		  'members': 10,
+		  'passed': 5,
+		  'host': '哲学联盟',
+		  'contact': '010-34388888',
+		  'review': true,
+		  'participated': 0,
+		  'denyed': 0,
+          'place': "新日暮里",
+          'members': 10,
+		  'image': '',
+          'brief': "Billy Herrington Billy Herrington Billy Herrington",
+		  'info': "Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington"
+        },
+        {
+          'title': "Deep Dark Fantasy",
+		  'id': 1,
+		  'type': "哲学活动",
+          'startTime': 1482837273007,
+		  'endTime': 1482837273007,
+		  'members': 10,
+		  'passed': 5,
+		  'host': '哲学联盟',
+		  'contact': '010-34388888',
+		  'review': true,
+		  'participated': 0,
+		  'denyed': 0,
+          'place': "新日暮里",
+          'members': 10,
+		  'image': '',
+          'brief': "Billy Herrington Billy Herrington Billy Herrington",
+		  'info': "Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington Billy Herrington"
+        },
+	]
+}

@@ -16,8 +16,9 @@
             </div>
             <div class="card-content">
               <div class="title">{{act.title}}</div>
-              <div class="time">活动时间: {{act.startTime}}至{{act.endTime}}</div>
-              <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{act.place}}</span>计划人数：<span id="num">{{act.people}}</span></div>
+              <div class="time">活动时间: {{act.time}}</div>
+              <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{act.place}}</span>计划人数：<span id="num">{{act.members}}</span></div>
+              <div class="time">活动主办方: {{act.host}}</div>
               <div class="info">活动简介: <span id="info">{{act.brief}}</span></div>
             </div>
         </div>

@@ -19,11 +19,11 @@
       <div class="act-num">
         <span class="act-num-part">
           计划人数：
-          <span id="act-total-num">{{ act.num }}</span>
+          <span id="act-total-num">{{ act.members }}</span>
         </span>
         <span class="act-num-part">
-          剩余人数：
-          <span id="act-remain-num">{{ act.remain }}</span>
+          已参加人数：
+          <span id="act-remain-num">{{ act.passed }}</span>
         </span>
       </div>
     </div>
@@ -108,7 +108,7 @@ export default {
           res = test_activity_detail;
           dispatch(ACT_SET_DETAIL, res);
         }).fail(function(res) {
-          
+
         });
       }
     }
