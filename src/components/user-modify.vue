@@ -98,7 +98,12 @@ export default {
         $('#alert-modal').modal('open')
         return
       }
-      this.modifyUsrInfo({})
+      this.modifyUsrInfo({
+        'name': this.name,
+        'phone': this.phone,
+        'email': this.email,
+        'description': this.description
+      })
     }
   }
 }
