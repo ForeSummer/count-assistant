@@ -11,11 +11,15 @@ const state = {
       'title': '',
       'time': '',
       'place': '',
-      'num': -1,
-      'remain': -1,
+      'members': -1,
+      'passed': -1,
       'isAuthor': false,
       'brief': '',
-      'info': ''
+      'info': '',
+      'host': '',
+      'contact': '',
+      'image': '',
+      'review': ''
     },
     'actList': [
       {
