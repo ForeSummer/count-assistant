@@ -43,6 +43,14 @@ import {
   ACT_SET_TITLE
 } from './vuex/mutation-types'
 
+import {
+  createActList
+} from './vuex/actions'
+
+import {
+  test_act
+} from './components/test'
+
 export default {
   name: 'App',
   components: {
@@ -63,8 +71,10 @@ export default {
       },
       getAllList: function({dispatch}) {
         $.get('get act all list').done(function(res) {
-          dispatch(ACT_SET_LIST, res.data)
+          res = test_act
+          dispatch(ACT_SET_LIST, createActList(res.data))
           dispatch(ACT_SET_TITLE, "活动大厅")
+          window.location.href = "#!/activity/list"
         }).fail(function(res) {
 
         })

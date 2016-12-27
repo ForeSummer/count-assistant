@@ -11,7 +11,7 @@
         <div class="row">
           <h5>活动信息</h5>
           <div class="input-field col s12">
-            <input value="" type="text" class="validate" v-model="name">
+            <input value="" type="text" class="validate" v-model="title">
             <label>活动名称</label>
           </div>
           <div class="input-field col s12">
@@ -47,7 +47,7 @@
             <div class="switch">
               <span class="tag">是否审核报名用户</span>
               <label>
-                否 <input type="checkbox">
+                否 <input type="checkbox" v-model="review">
                 <span class="lever"></span> 是
               </label>
             </div>
@@ -70,11 +70,11 @@
           </div>
           <h5>主办单位信息</h5>
           <div class="input-field col s12">
-            <input value="" type="text" class="validate" v-model="hostName">
+            <input value="" type="text" class="validate" v-model="host">
             <label>主办单位名称</label>
           </div>
           <div class="input-field col s12">
-            <input value="" type="text" class="validate" v-model="hostPhone">
+            <input value="" type="text" class="validate" v-model="contact">
             <label>主办方联系方式</label>
           </div>
           <a class="waves-effect btn" v-on:click="submit()">Submit</a>
@@ -125,7 +125,7 @@ export default {
   },
   data: function(){
     return {
-      'name': '',
+      'title': '',
       'place': '',
       'info': '',
       'type': '',
@@ -135,8 +135,10 @@ export default {
       'enddate': null,
       'endtime': ' ',
       'limit': '',
-
+      'host': '',
+      'contact': '',
       'modalmessage': '',
+      'review': true,
       'isSubmiting': false
     }
   },
@@ -168,7 +170,7 @@ export default {
 
     },
     submit: function() {
-      if(!this.name) {
+      if(!this.title) {
         this.modalmessage = '活动名称不能为空！'
         $('#alert-modal').modal('open')
         return
@@ -222,7 +224,13 @@ export default {
         return
       }
       this.isSubmiting = true
-      this.createActivity({})
+      this.createActivity({
+        'title': this.title,
+        'type': this.type,
+        'startTime': start,
+        'endTime': end,
+        'members': this.members,
+      })
     }
   }
 }
