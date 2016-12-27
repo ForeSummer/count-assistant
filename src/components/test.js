@@ -40,3 +40,34 @@ export const test_activity_detail = {
     'brief': '只是测试用的活动',
     'info': '为了测试用，所以写了一个看上去很长的活动介绍，其实这并没有什么卵用orz由于不够长，所以重复几次orz为了测试用，所以写了一个看上去很长的活动介绍，其实这并没有什么卵用orz由于不够长，所以重复几次orz为了测试用，所以写了一个看上去很长的活动介绍，其实这并没有什么卵用orz由于不够长，所以重复几次orz为了测试用，所以写了一个看上去很长的活动介绍，其实这并没有什么卵用orz由于不够长，所以重复几次orz为了测试用，所以写了一个看上去很长的活动介绍，其实这并没有什么卵用orz由于不够长，所以重复几次orz'
 }
+
+export const test_act_recommand = {
+	'code': 0,
+	'data': [
+		{
+          'title': "Deep Dark Fantasy",
+          'startTime': 1482837273007,
+		  'endTime': 1482837273007,
+          'place': "新日暮里",
+          'members': 10,
+          'brief': "Billy Herrington Billy Herrington Billy Herrington"
+        },
+        {
+          'title': "Deep Dark Fantasy",
+          'startTime': 1482837273007,
+		  'endTime': 1482837273007,
+          'place': "新日暮里",
+          'members': 10,
+          'brief': "Billy Herrington Billy Herrington Billy Herrington"
+        }
+	]
+}
+
+export const test_user_create = {
+	'code': 0,
+	'data': [
+		{
+			'title': "",
+		}
+	]
+}

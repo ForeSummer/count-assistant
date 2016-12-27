@@ -144,8 +144,14 @@ import {
 } from './test' 
 
 import {
+  createActList
+} from '../vuex/actions'
+
+import {
   USER_SET_INFO,
-  USER_CLEAR
+  USER_CLEAR,
+  ACT_SET_LIST,
+  ACT_SET_TITLE
 } from '../vuex/mutation-types'
 
 export default {
@@ -196,6 +202,7 @@ export default {
 
       },
       initHomepage: function({dispatch}) {
+        let _this = this
         $.get("user info init").done(function(res) {
           res = test_user_init
           if(res.code == 0) {
@@ -207,26 +214,50 @@ export default {
         })
         $.get("recommand act").done(function(res) {
           res = test_act_recommand
-
+          if(res.code == 0) {
+            _this.recommandList = createActList(res.data)
+          }
         }).fail(function(res) {
           console.log(res)
         })
         $.get("newest act").done(function(res) {
           res = test_newest_act
-
+          if(res.code == 0) {
+            _this.newestList = createActList(res.data)
+          }
         }).fail(function(res) {
           console.log(res)
+        })
+      },
+      searchContent: function({dispatch}, content) {
+        let param = {
+          'search': content
+        }
+        $.ajax({
+          type: "post",
+          url: '',
+          data: JSON.stringify(param),
+          contentType: 'application/json;charset=utf-8',
+          success: function(res){
+            dispatch(ACT_SET_LIST, res.data)
+            dispatch(ACT_SET_TITLE, "搜索结果")
+            window.location.href=$("#jump")[0].hash
+          },
+          error: function(res) {
+            console.log(res)
+          }
         })
       }
     }
   },
   ready: function() {
-    this.initHomepage()
+    //this.initHomepage()
+    console.log(createActList(test_act_recommand.data))
     $('.carousel.carousel-slider').carousel({full_width: true});
   },
   methods: {
     search: function() {
-      this.searchContent = ''
+      this.searchAct(this.searchContent)
     }
   }
 }

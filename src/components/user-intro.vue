@@ -206,7 +206,8 @@
 
 <script>
 import {
-  test_user_info
+  test_user_info,
+  test_user_create
 } from './test' 
 
 import {
@@ -215,15 +216,25 @@ import {
 
 export default {
   name: 'userIntro',
+  data: function() {
+    return {
+      createList: [{
+        
+      }],
+      participateList: []
+    }
+  },
   vuex: {
     getters: {
       focusUser: state => state.user.data.focusUser
     },
     actions: {
       getInfo: function({dispatch}) {
-        $.get('').success(function(res) {
+        $.get('userInfo').done(function(res) {
           res = test_user_info;
           dispatch(USER_SET_INFO, res);
+        }).fail(function(res) {
+
         });
       }
     }

@@ -104,9 +104,11 @@ export default {
     },
     actions: {
       getActDetail: function({dispatch}) {
-        $.get('').success(function(res) {
+        $.get('').done(function(res) {
           res = test_activity_detail;
           dispatch(ACT_SET_DETAIL, res);
+        }).fail(function(res) {
+          
         });
       }
     }

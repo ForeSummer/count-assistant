@@ -27,5 +27,18 @@ export function getTimeString(timeStamp) {
 }
 
 export function createActList(resData) {
-  
+  let actList = []
+  let start = "",end = ""
+  for (let i = 0; i < resData.length; i ++) {
+    let act = {}
+    start = getTimeString(resData[i].startTime)
+    end = getTimeString(resData[i].endTime)
+    act.title = resData[i].title
+    act.time = start.date + ' ' + start.time + ' 至 ' + end.date  + ' ' + end.time
+    act.place = resData[i].place
+    act.brief = resData[i].brief
+    act.members = resData[i].members
+    actList.push(act)
+  }
+  return actList
 }

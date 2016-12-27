@@ -1,13 +1,14 @@
 <template>
   <div class="search-field">
-    <input class="input" id="search" type="text" class="validate">
-    <button class="btn" type="submit" name="action">搜索</button>
+    <input class="input" id="search" type="text" class="validate" v-model="searchContent">
+    <button class="btn" type="submit" name="action" v-on:click="search">搜索</button>
   </div>
   <div class="act-list">
-    <div class="title">查找结果</div>
+    <div class="title">{{listTitle}}</div>
     <hr>
     <template v-for="act in actList">
       <ul>
+        <a v-link="{ path: '/activity/detail/' + act.id }">
         <li>
           <div class="card">
             <div class="card-image">
@@ -21,6 +22,7 @@
             </div>
         </div>
         </li>
+        </a>
       </ul>
     </template>
   </div>
@@ -105,16 +107,42 @@ import {
 
 export default {
   name: 'homepage',
+  data: function() {
+    return {
+      searchContent: '',
+    }
+  },
   vuex: {
     getters: {
       actList: state => state.activity.data.actList,
+      listTitle: state => state.activity.status.listTitle,
     },
     actions: {
-
+      searchAct: function({dispatch}, content) {
+        let param = {
+          'search': content
+        }
+        $.ajax({
+          type: "post",
+          url: '',
+          data: JSON.stringify(param),
+          contentType: 'application/json;charset=utf-8',
+          success: function(res){
+            dispatch(ACT_SET_LIST, res.data)
+            dispatch(ACT_SET_TITLE, "搜索结果")
+            window.location.href=$("#jump")[0].hash
+          },
+          error: function(res) {
+            console.log(res)
+          }
+        })
+      }
     }
   },
   methods: {
-
+    search: function() {
+      this.searchAct(this.searchContent)
+    }
   }
 }
 </script>
