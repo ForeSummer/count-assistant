@@ -9,6 +9,7 @@
     <div class="row">
       <div class="col s12">
         <div class="row">
+          <h5>活动信息</h5>
           <div class="input-field col s12">
             <input value="" type="text" class="validate" v-model="name">
             <label>活动名称</label>
@@ -21,6 +22,15 @@
             <input value="" type="text" class="validate" v-model="place">
             <label>活动地点</label>
           </div>
+          <div class="file-field input-field col s12">
+            <div class="btn">
+              <span>活动海报</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
           <div class="input-field col s12">
             <input value="" type="text" class="validate" v-model="limit">
             <label>活动人数上限(可不填)</label>
@@ -32,6 +42,15 @@
           <div class="input-field col s12">
             <textarea id="textarea1" class="materialize-textarea" v-model="description"></textarea>
             <label>活动详细描述</label>
+          </div>
+          <div class="switch-field col s12">
+            <div class="switch">
+              <span class="tag">是否审核报名用户</span>
+              <label>
+                否 <input type="checkbox">
+                <span class="lever"></span> 是
+              </label>
+            </div>
           </div>
           <div class="input-field col s6">
             <input value="" type="text" class="validate date-picker" id="start-datepicker" v-model="startdate" data-fx-mobile="true" data-large-mode="true" data-large-default="true" data-max-year="2030" data-min-year="2016">
@@ -48,6 +67,15 @@
           <div class="input-field col s6">
             <input value="" type="text" class="validate time-picker" id="end-timepicker" v-model="endtime">
             <label>结束时间</label>
+          </div>
+          <h5>主办单位信息</h5>
+          <div class="input-field col s12">
+            <input value="" type="text" class="validate" v-model="hostName">
+            <label>主办单位名称</label>
+          </div>
+          <div class="input-field col s12">
+            <input value="" type="text" class="validate" v-model="hostPhone">
+            <label>主办方联系方式</label>
           </div>
           <a class="waves-effect btn" v-on:click="submit()">Submit</a>
         </div>
@@ -68,6 +96,12 @@
 <style lang="less">
   .picker {
     width:300px!important;
+  }
+  .switch-field {
+    margin-bottom: 30px;
+    .tag {
+      margin-right: 20px;
+    }
   }
 </style>
 
