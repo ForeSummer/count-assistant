@@ -44,7 +44,9 @@ const state = {
     ]
   },
   'status': {
-    'listTitle': ""
+    'listTitle': "所有活动",
+    'totalPage': 6,
+    'currentPage': 3,
   }
 }
 

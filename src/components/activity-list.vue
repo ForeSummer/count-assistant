@@ -27,13 +27,14 @@
       </ul>
     </template>
     <ul class="pagination">
-      <li class="disabled"><a href="#!"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
-      <li class="active"><a href="#!">1</a></li>
-      <li class="waves-effect"><a href="#!">2</a></li>
-      <li class="waves-effect"><a href="#!">3</a></li>
-      <li class="waves-effect"><a href="#!">4</a></li>
-      <li class="waves-effect"><a href="#!">5</a></li>
-      <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-right"></i></a></li>
+      <li v-if="currentPage == 1" class="disabled"><a><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+      <li v-if="currentPage != 1" class="waves-effect"><a href="#!"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+      <template v-for="i in totalPage">
+        <li v-if="(i + 1) == currentPage" class="active"><a>{{ i + 1 }}</a></li>
+        <li v-if="(i + 1) != currentPage" class="waves-effect"><a href="#!">{{ i + 1 }}</a></li>
+      </template>
+      <li v-if="currentPage == totalPage" class="disabled"><a><i class="fa fa-chevron-right"></i></a></li>
+      <li v-if="currentPage != totalPage" class="waves-effect"><a href="#!"><i class="fa fa-chevron-right"></i></a></li>
     </ul>
   </div>
 </template>
@@ -73,6 +74,7 @@
     width: 100%;
   }
   .card {
+    color: black;
     font-family: 'Microsoft Yahei', 'Hiragino Sans GB';
     overflow: hidden;
     height: 200px;
@@ -131,6 +133,8 @@ export default {
     getters: {
       actList: state => state.activity.data.actList,
       listTitle: state => state.activity.status.listTitle,
+      totalPage: state => state.activity.status.totalPage,
+      currentPage: state => state.activity.status.currentPage,
     },
     actions: {
       searchAct: function({dispatch}, content) {
