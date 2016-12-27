@@ -16,18 +16,18 @@
           <div class="file-field input-field col s12">
             <div class="btn">
               <span>头像</span>
-              <input type="file">
+              <input type="file" v-model="img">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text">
             </div>
           </div>
           <div class="input-field col s12">
-            <input value="" type="text" class="validate" v-model="type">
+            <input value="" type="text" class="validate" v-model="phone">
             <label>手机</label>
           </div>
           <div class="input-field col s12">
-            <input value="" type="text" class="validate" v-model="place">
+            <input value="" type="text" class="validate" v-model="email">
             <label>邮箱</label>
           </div>
           <div class="input-field col s12">
@@ -38,6 +38,16 @@
         </div>
       </div>
     </div>
+    <div id="alert-modal" class="modal">
+      <div class="modal-content">
+        <h4>提示信息</h4>
+        <p>{{modalmessage}}</p>
+      </div>
+      <div class="modal-footer">
+        <a class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="less">
@@ -46,9 +56,50 @@
 
 <script>
 export default {
-  name: 'homepage',
-  methods: {
+  name: 'usrModify',
+  components: {
 
+  },
+  data: function(){
+    return {
+      'name': '',
+      'phone': '',
+      'email': '',
+      'description': '',
+      'modalmessage': '',
+    }
+  },
+  vuex: {
+    getters: {
+    },
+    actions: {
+      modifyUsrInfo: function({dispatch}, data) {
+
+      },
+    }
+  },
+  ready: function () {
+    $('#alert-modal').modal()
+  },
+  methods: {
+    submit: function () {
+      if(!this.name) {
+        this.modalmessage = '昵称不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.phone) {
+        this.modalmessage = '手机不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      else if(!this.email) {
+        this.modalmessage = '邮箱不能为空！'
+        $('#alert-modal').modal('open')
+        return
+      }
+      this.modifyUsrInfo({})
+    }
   }
 }
 </script>
