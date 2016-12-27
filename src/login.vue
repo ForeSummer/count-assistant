@@ -1,25 +1,27 @@
 <template>
   <div class="row login-container">
+    <div class="title center col s12">Welcome To EasyMeeting!</div>
     <div class="card large col s6 offset-s3">
       <div class="" ><a id="jump" v-link="{path: '/homepage'}"></a></div>
-      <div class="center col s12">Welcome To EasyMeeting!</div>
-      <div class="center col s6">
-        <div class="">我已经是EasyMeeting的用户了！</div>
-        <div class="">打开微信公众号界面获取6位验证码以验证身份</div>
-        <div class="input-field">
-          <input id="validate" type="text" class="validate" v-model="verifyCode">
-          <label for="validate">请输入验证码</label>
+      <div class="left col s6">
+        <div class="left-container">
+          <div class="left-title">我已经是EasyMeeting的用户了！</div>
+          <div class="">打开微信公众号界面获取6位验证码以验证身份</div>
+          <div class="input-field">
+            <input id="validate" type="text" class="validate" v-model="verifyCode">
+            <label for="validate">请输入验证码</label>
+          </div>
+          <a class="btn" v-on:click="login()">登录</a>
         </div>
-        <a class="btn" v-on:click="login()">登录</a>
       </div>
       <div class="hr col s1">
         <img src="assets/hr.png">
       </div>
       <div class="right col s5">
-        <div class="">我第一次使用EasyMeeting～</div>
-        <img src="assets/qrcode.jpeg">
-        <div>
-          请关注微信公众号加入我们吧！
+        <div class="right-container">
+          <div class="right-title">我第一次使用EasyMeeting～</div>
+          <div class=""><img src="assets/qrcode.jpeg"></div>
+          <div class="">请关注微信公众号加入我们吧！</div>
         </div>
       </div>
     </div>
@@ -33,27 +35,50 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  background: url('assets/banner.png');
-  .card {
-    top: 100px;
-    .left {
-      margin-top: 200px;
+  background: url('assets/banner.png') no-repeat;
+  background-size: 100% 100%;
+  .title {
+    font-size: 50px;
+    color: white;
+    font-style: italic;
+    margin-top: 20px;
+    @media screen and (min-width: 1900px) {
+      margin-top: 100px;
     }
+    margin-bottom: 40px;
+  }
+  .card {
+    border-radius: 10px;
     .hr {
       img {
-        margin-top: 75px;
+        margin-top: 80px;
         margin-left: 40px;
+      }
+    }
+    .left {
+      text-align: center;
+      .left-container {
+        margin-top: 20px;
+        .left-title {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 120px;
+        }
       }
     }
     .right {
       text-align: center;
-      img {
-        width: 200px;
-        height: 200px;
-        margin-top: 80px;
-      }
-      .btn {
-        margin-top: 30px;
+      .right-container {
+        margin-top: 20px;
+        .right-title {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 80px;
+        }
+        img {
+          width: 200px;
+          height: 200px;
+        }
       }
     }
   }
@@ -109,10 +134,10 @@ export default {
     }
   },
   ready: function() {
-    if(this.userID!="") {
+    /* if(this.userID!="") {
       window.location.href=$("#jump")[0].hash
       return
-    }
+    } */
     $("nav").hide();
     $("footer").hide();
     this.checkUser();
