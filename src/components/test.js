@@ -31,7 +31,7 @@ export const test_user_info = {
 
 export const test_activity_detail = {
 	'id': 1,
-	'isAuthor': false,
+	'isAuthor': true,
 	'title': '这个用户创建的第一个活动',
     'time': '2016-12-8',
     'place': 'ZJ1#412',
