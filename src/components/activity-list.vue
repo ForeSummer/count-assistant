@@ -25,6 +25,15 @@
         </a>
       </ul>
     </template>
+    <ul class="pagination">
+      <li class="disabled"><a href="#!"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+      <li class="active"><a href="#!">1</a></li>
+      <li class="waves-effect"><a href="#!">2</a></li>
+      <li class="waves-effect"><a href="#!">3</a></li>
+      <li class="waves-effect"><a href="#!">4</a></li>
+      <li class="waves-effect"><a href="#!">5</a></li>
+      <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-right"></i></a></li>
+    </ul>
   </div>
 </template>
 
@@ -96,6 +105,11 @@
       }
     }
   }
+}
+
+.pagination {
+  margin-top: 50px;
+  text-align: center;
 }
 
 </style>

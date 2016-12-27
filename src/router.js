@@ -4,6 +4,7 @@ import about from './components/about'
 import price from './components/price'
 import actList from './components/activity-list'
 import actDetail from './components/activity-detail'
+import actUser from './components/activity-user'
 import usrIntro from './components/user-intro'
 import usrModify from './components/user-modify'
 import message from './components/message'
@@ -33,6 +34,9 @@ export default function(router) {
         },
         '/activity/detail/:id': {
           component: actDetail
+        },
+        '/activity/user/:id': {
+          component: actUser
         },
         '/user/:id': {
           component: usrIntro
