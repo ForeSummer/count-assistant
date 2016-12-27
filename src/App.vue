@@ -7,6 +7,7 @@
       <ul class="right hide-on-med-and-down">
         <li><a v-link="{ path: '/activity/create' }" class="white-text">创建活动</a></li>
         <li><a v-link="{ path: '/user/' + userid }" class="white-text">个人中心</a></li>
+        <li><a v-on:click="getAllList" class="white-text">活动大厅</a></li>
         <li><a v-link="{ path: '/message' }" class="white-text">我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a v-link="{ path: '/price' }" class="white-text">费用说明</a></li>
         <li><a v-link="{ path: '/about' }" class="white-text">关于我们</a></li>
@@ -19,6 +20,7 @@
         </div>
         <li><a v-link="{ path: '/activity/create' }">创建活动</a></li>
         <li><a v-link="{ path: '/user/' + userid }" >个人中心</a></li>
+        <li><a v-on:click="getAllList" class="white-text">活动大厅</a></li>
         <li><a v-link="{ path: '/message' }" >我的私信<span class="alert-num" v-show="unreadMessage != 0">{{unreadMessage}}</span></a></li>
         <li><a v-link="{ path: '/price' }">费用说明</a></li>
         <li><a v-link="{ path: '/about' }">关于我们</a></li>
@@ -37,7 +39,8 @@
 <script>
 
 import {
-
+  ACT_SET_LIST,
+  ACT_SET_TITLE
 } from './vuex/mutation-types'
 
 export default {
@@ -58,6 +61,14 @@ export default {
       getUserBriefInfo: function() {
          console.log("need to get info")
       },
+      getAllList: function({dispatch}) {
+        $.get('get act all list').done(function(res) {
+          dispatch(ACT_SET_LIST, res.data)
+          dispatch(ACT_SET_TITLE, "活动大厅")
+        }).fail(function(res) {
+
+        })
+      }
     }
   },
   ready: function() {

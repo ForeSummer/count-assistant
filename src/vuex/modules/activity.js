@@ -1,5 +1,7 @@
 import {
   ACT_SET_DETAIL,
+  ACT_SET_LIST,
+  ACT_SET_TITLE,
 } from '../mutation-types'
 
 const state = {
@@ -33,7 +35,7 @@ const state = {
     ]
   },
   'status': {
-
+    'listTitle': ""
   }
 }
 
@@ -48,6 +50,12 @@ const mutations = {
     state.data.currentAct.remain = res.remain;
     state.data.currentAct.brief = res.brief;
     state.data.currentAct.info = res.info;
+  },
+  [ACT_SET_LIST] (state, data) {
+
+  },
+  [ACT_SET_TITLE] (state, title) {
+    state.status.listTitle = title
   }
 }
 
