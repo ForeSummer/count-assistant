@@ -19,7 +19,7 @@
       <div class="act-num">
         <span class="act-num-part">
           计划人数：
-          <span id="act-total-num">{{ act.members }}</span>
+          <span id="act-total-num">{{ act.num }}</span>
         </span>
         <span class="act-num-part">
           已参加人数：

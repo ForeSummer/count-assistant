@@ -9,34 +9,10 @@
         </ul>
       </div>
       <div id="test1" class="single col s12">
-        <ul class="collection">
+        <ul class="collection" v-for="user in act.waitingUser">
           <li class="collection-item avatar">
             <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User1</span>
-            <span class="right-btn">
-              <a class="waves-effect waves-light btn">通过</a>
-              <a class="waves-effect waves-light btn">拒绝</a>
-            </span>
-          </li>
-          <li class="collection-item avatar">
-            <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User2</span>
-            <span class="right-btn">
-              <a class="waves-effect waves-light btn">通过</a>
-              <a class="waves-effect waves-light btn">拒绝</a>
-            </span>
-          </li>
-          <li class="collection-item avatar">
-            <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User3</span>
-            <span class="right-btn">
-              <a class="waves-effect waves-light btn">通过</a>
-              <a class="waves-effect waves-light btn">拒绝</a>
-            </span>
-          </li>
-          <li class="collection-item avatar">
-            <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User4</span>
+            <span class="username">{{ user.nickname }}</span>
             <span class="right-btn">
               <a class="waves-effect waves-light btn">通过</a>
               <a class="waves-effect waves-light btn">拒绝</a>
@@ -45,22 +21,18 @@
         </ul>
       </div>
       <div id="test2" class="single col s12">
-        <ul class="collection">
+        <ul class="collection" v-for="user in act.passedUser">
           <li class="collection-item avatar">
             <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User1</span>
-          </li>
-          <li class="collection-item avatar">
-            <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User2</span>
+            <span class="username">{{ user.nickname }}</span>
           </li>
         </ul>
       </div>
       <div id="test3" class="single col s12">
-        <ul class="collection">
+        <ul class="collection" v-for="user in act.denyedUser">
           <li class="collection-item avatar">
             <img src="../assets/huaji.jpg" alt="" class="icon">
-            <span class="username">User1</span>
+            <span class="username">{{ user.nickname }}</span>
           </li>
         </ul>
       </div>
@@ -98,3 +70,40 @@
 }
 
 </style>
+
+<script>
+import {
+  test_activity_detail
+} from './test' 
+
+import {
+  ACT_SET_DETAIL
+} from '../vuex/mutation-types'
+
+export default {
+  name: 'activityDetail',
+  vuex: {
+    getters: {
+      act: state => state.activity.data.currentAct,
+    },
+    actions: {
+      getActDetail: function({dispatch}) {
+        $.get('').done(function(res) {
+          res = test_activity_detail;
+          dispatch(ACT_SET_DETAIL, res);
+        }).fail(function(res) {
+
+        });
+      }
+    }
+  },
+  ready: function() {
+    this.getActDetail();
+  },
+  methods: {
+    getId: function() {
+      return this.$route.params.id
+    }
+  }
+}
+</script>

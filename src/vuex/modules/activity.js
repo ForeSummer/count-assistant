@@ -12,10 +12,8 @@ const state = {
       'type': '',
       'time': '',
       'place': '',
-      'members': -1,
+      'num': -1,
       'passed': -1,
-      'denyed': -1,
-      'participated': -1,
       'isAuthor': false,
       'brief': '',
       'info': '',
@@ -24,7 +22,10 @@ const state = {
       'image': '',
       'review': 'true',
       'startTime': '',
-      'endTime': ''
+      'endTime': '',
+      'waitingUser': [],
+      'denyedUser': [],
+      'passedUser': []
     },
     'actList': [
       {
@@ -58,9 +59,12 @@ const mutations = {
     state.data.currentAct.time = res.time;
     state.data.currentAct.place = res.place;
     state.data.currentAct.num = res.num;
-    state.data.currentAct.remain = res.remain;
+    state.data.currentAct.passed = res.passed;
     state.data.currentAct.brief = res.brief;
     state.data.currentAct.info = res.info;
+    state.data.currentAct.waitingUser = res.waitingUser;
+    state.data.currentAct.denyedUser = res.denyedUser;
+    state.data.currentAct.passedUser = res.passedUser;
   },
   [ACT_SET_LIST] (state, data) {
     console.log(data)
