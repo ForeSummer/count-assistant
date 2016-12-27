@@ -1,6 +1,7 @@
 import {
   USER_SET,
-  USER_SET_INFO
+  USER_SET_INFO,
+  USER_CLEAR,
 } from '../mutation-types'
 
 const state = {

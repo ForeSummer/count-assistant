@@ -56,12 +56,11 @@ export default {
     },
     actions: {
       getUserBriefInfo: function() {
-        
+         console.log("need to get info")
       },
     }
   },
   ready: function() {
-    
     $(".button-collapse").sideNav({
       closeOnClick: true,
     });

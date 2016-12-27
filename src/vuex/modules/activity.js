@@ -15,9 +15,22 @@ const state = {
       'brief': '',
       'info': ''
     },
-    'ActList': {
-
-    }
+    'actList': [
+      {
+        title: "test title",
+        startTime: "2016-10-22",
+        endTime: "2016-11-13",
+        place: "1#412",
+        brief: "This is a brief introduction",
+      },
+      {
+        title: "test title",
+        startTime: "2016-10-22",
+        endTime: "2016-11-13",
+        place: "1#412",
+        brief: "This is a brief introduction",
+      }
+    ]
   },
   'status': {
 

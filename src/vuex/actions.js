@@ -25,3 +25,7 @@ export function getTimeString(timeStamp) {
     time: dateObj.getHours() + ':' + dateObj.getMinutes()
   }
 }
+
+export function createActList(resData) {
+  
+}

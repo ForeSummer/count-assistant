@@ -17,6 +17,9 @@ export default function(router) {
       component: App,
       subRoutes:{
         '/': {
+          component: login
+        },
+        '/homepage':{
           component: homepage
         },
         '/about': {

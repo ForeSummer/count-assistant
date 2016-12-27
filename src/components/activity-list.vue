@@ -6,21 +6,23 @@
   <div class="act-list">
     <div class="title">查找结果</div>
     <hr>
-    <ul>
-      <li>
-        <div class="card">
-          <div class="card-image">
-            <img src="../assets/huaji.jpg">
-          </div>
-          <div class="card-content">
-            <div class="title">Title</div>
-            <div class="time">活动时间: 2016-12-6</div>
-            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">412A</span>计划人数：<span id="num">4</span></div>
-            <div class="info">活动简介: <span id="info">一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话</span></div>
-          </div>
-       </div>
-      </li>
-    </ul>
+    <template v-for="act in actList">
+      <ul>
+        <li>
+          <div class="card">
+            <div class="card-image">
+              <img src="../assets/huaji.jpg">
+            </div>
+            <div class="card-content">
+              <div class="title">{{act.title}}</div>
+              <div class="time">活动时间: {{act.startTime}}至{{act.endTime}}</div>
+              <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{act.place}}</span>计划人数：<span id="num">{{act.people}}</span></div>
+              <div class="info">活动简介: <span id="info">{{act.brief}}</span></div>
+            </div>
+        </div>
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
@@ -97,8 +99,20 @@
 </style>
 
 <script>
+import {
+  test_activity_list
+} from './test'
+
 export default {
   name: 'homepage',
+  vuex: {
+    getters: {
+      actList: state => state.activity.data.actList,
+    },
+    actions: {
+
+    }
+  },
   methods: {
 
   }

@@ -14,40 +14,45 @@
   <div class="act-list">
     <div class="title">强烈推荐</div>
     <hr>
-    <ul>
-      <li>
-        <div class="card">
-          <div class="card-image">
-            <img src="../assets/huaji.jpg">
-          </div>
-          <div class="card-content">
-            <div class="title">Title</div>
-            <div class="time">活动时间: 2016-12-6</div>
-            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">412A</span>计划人数：<span id="num">4</span></div>
-            <div class="info">活动简介: <span id="info">一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话</span></div>
-          </div>
-       </div>
-      </li>
-    </ul>
+    <template v-for="act in recommandList">
+      <ul>
+        <li>
+          <div class="card">
+            <div class="card-image">
+              <img src="../assets/huaji.jpg">
+            </div>
+            <div class="card-content">
+              <div class="title">{{act.title}}</div>
+              <div class="time">活动时间: {{act.time}}</div>
+              <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{act.place}}</span>计划人数：<span id="num">{{act.members}}</span></div>
+              <div class="info">活动简介: <span id="info">{{act.brief}}</span></div>
+            </div>
+        </div>
+        </li>
+      </ul>
+    </template>
   </div>
   <div class="act-list">
     <div class="title">最新活动</div>
     <hr>
-    <ul>
-      <li>
-        <div class="card">
-          <div class="card-image">
-            <img src="../assets/huaji.jpg">
-          </div>
-          <div class="card-content">
-            <div class="title">Title</div>
-            <div class="time">活动时间: 2016-12-6</div>
-            <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">412A</span>计划人数：<span id="num">4</span></div>
-            <div class="info">活动简介: <span id="info">一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话一长段话</span></div>
-          </div>
-       </div>
-      </li>
-    </ul>
+    <template v-for="act in newestList">
+      <ul>
+        <li>
+          <div class="card">
+            <div class="card-image">
+              <img src="../assets/huaji.jpg">
+            </div>
+            <div class="card-content">
+              <div class="title">{{act.title}}</div>
+              <div class="time">活动时间: {{act.time}}</div>
+              <div class="place-and-num">活动地点: <span id="place" style="margin-right:50px;">{{act.place}}</span>计划人数：<span id="num">{{act.members}}</span></div>
+              <div class="info">活动简介: <span id="info">{{act.brief}}</span></div>
+            </div>
+        </div>
+        </li>
+      </ul>
+    </template>
+    
   </div>
 </template>
 
@@ -132,11 +137,54 @@
 </style>
 
 <script>
+import {
+  test_user_init,
+  test_act_recommand,
+  test_newest_act
+} from './test' 
+
+import {
+  USER_SET_INFO,
+  USER_CLEAR
+} from '../vuex/mutation-types'
+
 export default {
   name: 'homepage',
   data: function() {
     return {
-      searchContent: ''
+      searchContent: '',
+      recommandList: [
+        {
+          'title': "Deep Dark Fantasy",
+          'time': "2016-10-22 03:00 至 2010-11-11 02:00",
+          'place': "新日暮里",
+          'members': 10,
+          'brief': "Billy Herrington Billy Herrington Billy Herrington"
+        },
+        {
+          'title': "Deep Dark Fantasy",
+          'time': "2016-10-22 03:00 至 2010-11-11 02:00",
+          'place': "新日暮里",
+          'members': 10,
+          'brief': "Billy Herrington Billy Herrington Billy Herrington"
+        }
+      ],
+      newestList: [
+        {
+          'title': "Deep Dark Fantasy",
+          'time': "2016-10-22 03:00 至 2010-11-11 02:00",
+          'place': "新日暮里",
+          'members': 10,
+          'brief': "Billy Herrington Billy Herrington Billy Herrington"
+        },
+        {
+          'title': "Deep Dark Fantasy",
+          'time': "2016-10-22 03:00 至 2010-11-11 02:00",
+          'place': "新日暮里",
+          'members': 10,
+          'brief': "Billy Herrington Billy Herrington Billy Herrington"
+        }
+      ],
     }
   },
   vuex: {
@@ -146,11 +194,34 @@ export default {
     actions: {
       getActList: function() {
 
+      },
+      initHomepage: function({dispatch}) {
+        $.get("user info init").done(function(res) {
+          res = test_user_init
+          if(res.code == 0) {
+            dispatch(USER_CLEAR)
+            dispatch(USER_SET_INFO,res.data)
+          }
+        }).fail(function(res) {
+          console.log(res)
+        })
+        $.get("recommand act").done(function(res) {
+          res = test_act_recommand
+
+        }).fail(function(res) {
+          console.log(res)
+        })
+        $.get("newest act").done(function(res) {
+          res = test_newest_act
+
+        }).fail(function(res) {
+          console.log(res)
+        })
       }
     }
   },
   ready: function() {
-    this.getActList()
+    this.initHomepage()
     $('.carousel.carousel-slider').carousel({full_width: true});
   },
   methods: {
